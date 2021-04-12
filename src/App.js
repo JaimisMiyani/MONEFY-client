@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Budgets from './components/Budgets';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Logout from './components/Logout';
+import Expenses from './components/Expenses';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/login" exact render={() => <Login />}/>
         <PrivateRoute path="/budgets" exact component={Budgets}/>
         <PrivateRoute path="/logout" exact component={Logout}/>
+        <PrivateRoute path="/expenses" exact component={Expenses}/>
         <Route path="/" exact render={() => <Home />}/>
       </Switch>
     </Router>
