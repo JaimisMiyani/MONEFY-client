@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 
-const Login = () => {
+const Login = ({onLogin}) => {
     const [email, setEmail] = useState('');
 
     const [password, setPassword] = useState('');
@@ -28,6 +28,7 @@ const Login = () => {
             console.log(res.data);
             localStorage.setItem('token', res.data.token);
             setIsAuthenticated(true);
+            onLogin(res.data);
         } catch (error) {
             console.log(error.response.data.error);
             setError(error.response.data.error);
