@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import AddExpense from './components/AddExpense';
 import Profile from './components/Profile';
 import axios from 'axios';
+import BudgetBreakdown from './components/BudgetBreakdown';
 
 function App() {
 
@@ -65,6 +66,7 @@ function App() {
         <PrivateRoute path="/budgets" exact component={Budgets} />
         <PrivateRoute path="/addExpense" exact component={AddExpense} />
         <PrivateRoute path="/profile" exact component={Profile} />
+        <PrivateRoute path="/budgetBreakdown" exact component={BudgetBreakdown} />
         <Route path="/" exact render={() => <Home />} />
       </Switch>
     </Router>

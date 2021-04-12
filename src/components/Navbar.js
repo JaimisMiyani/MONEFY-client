@@ -16,7 +16,7 @@ const Navbar = ({ onLogout }) => {
                                 <NavLink exact to='/addExpense' className='nav-link'>Add Expense</NavLink>
                             </li>
                             <li className='nav-item'>
-                                <NavLink exact to='/budgets' className='nav-link'>Budget Breakdown</NavLink>
+                                <NavLink exact to='/budgetBreakdown' className='nav-link'>Budget Breakdown</NavLink>
                             </li>
                             <li className='nav-item'>
                                 <NavLink exact to='/profile' className='nav-link'>Profile</NavLink>
