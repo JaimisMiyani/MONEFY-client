@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import RadarChart from '../charts/RadarChart';
+import DoughnutChart from '../charts/DoughnutChart';
 import axios from 'axios';
 
 const BudgetBreakdown = () => {
 
     const [budgets, setBudgets] = useState({});
     const [expenses, setExpenses] = useState({});
+    const [income, setIncome] = useState(0);
 
     const fetchBudgets = async (config) => {
         try {
             const res = await axios.get('http://localhost:3000/api/budgets', config);
-            console.log(res.data);
+            // console.log(res.data);
             const newBudgets = res.data.data;
             delete newBudgets.userId;
             delete newBudgets.__v;
@@ -24,7 +26,7 @@ const BudgetBreakdown = () => {
                 try {
                     const res = await axios.post('http://localhost:3000/api/budgets', body, config);
                 } catch (error) {
-                    console.log("here", error.response.data.error);
+                    console.log(error.response.data.error);
                 }
             }
             else {
@@ -36,7 +38,7 @@ const BudgetBreakdown = () => {
     const fetchExpenses = async (config) => {
         try {
             const res = await axios.get('http://localhost:3000/api/expenses', config);
-            console.log(res.data);
+            // console.log(res.data);
             const newExpenses = res.data.data;
             delete newExpenses.userId;
             delete newExpenses.__v;
@@ -59,6 +61,18 @@ const BudgetBreakdown = () => {
         }
     }
 
+    const fetchIncome = async (config) => {
+        try {
+            const res = await axios.get('http://localhost:3000/api/profile', config);
+            // console.log(res.data);
+            const newIncome = res.data.data.income;
+            setIncome(newIncome)
+        } catch (error) {
+            console.log("Error is here")
+            console.log(error.response.data.error);
+        }
+    }
+
     const fetchData = async () => {
         const config = {
             headers: {
@@ -71,7 +85,9 @@ const BudgetBreakdown = () => {
 
         fetchExpenses(config);
 
-        console.log(budgets, expenses);
+        fetchIncome(config);
+
+        console.log(budgets, expenses, income);
     }
 
     useEffect(() => {
@@ -81,6 +97,8 @@ const BudgetBreakdown = () => {
     return (
         <div>
             <RadarChart budgets={budgets} expenses={expenses} />
+            <DoughnutChart budgets={budgets} income={income} chartTitle="Budgets"/>
+            <DoughnutChart budgets={expenses} income={income} chartTitle="Expenses"/>
         </div>
     )
 }
