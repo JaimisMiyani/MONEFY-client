@@ -60,22 +60,8 @@ const EditBudgets = () => {
             setCommunication(res.data.data.communication);
             setMisc(res.data.data.misc);
         } catch (error) {
-            if(error.response.data.error === "Budgets are not defined yet ..."){
-    
-                const body = {groceries, housing, transportation, clothing, health, disretionary, education, communication, misc};
-                
-                // console.log(new_body)
-
-                try {
-                    const res = await axios.post('http://localhost:3000/api/budgets', body, config);
-                    console.log(res);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-            }
-            else {
-                setError(error.response.data.error);
-            }
+            console.log(error.response.data.error)
+            setError(error.response.data.error);
         }
     };
 
@@ -89,7 +75,7 @@ const EditBudgets = () => {
             <div>
                 <form>
                     <label>Groceries</label>
-                    <input type='text' value={groceries}onChange={(e) => setGroceries(e.target.value)}></input>
+                    <input type='text' value={groceries} onChange={(e) => setGroceries(e.target.value)}></input>
                     <button onClick={(e)=> handleSubmit(e, 'groceries', groceries)}>Update</button><br/>
                     <label>Housing</label>
                     <input type='text' value={housing} onChange={(e) => setHousing(e.target.value)}></input>

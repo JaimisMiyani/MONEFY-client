@@ -110,14 +110,12 @@ const BudgetBreakdown = () => {
         for (var i = age; i <= 60; i++) {
             newAges.push(i);
             const val = (income - expenses.totalExpense) * ((Math.pow(1 + 0.04, (i - age) * 12) - 1) / 0.04);
-            console.log(val);
+            // console.log(val);
             newYearlyReturn.push(val);
         }
 
         setAges(newAges);
         setYearlyReturn(newYearlyReturn);
-
-        console.log(ages, yearlyReturn);
     }
 
     useEffect(() => {
@@ -125,7 +123,6 @@ const BudgetBreakdown = () => {
     }, []);
 
     useEffect(() => {
-        console.log(age);
         calculateReturn();
     }, [age, income]);
 

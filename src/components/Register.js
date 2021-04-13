@@ -38,12 +38,40 @@ const Register = () => {
             const res = await axios.post('http://localhost:3000/api/user/register', body, config);
             console.log(res.data);
             setIsRegistered(true);
+
+            // setting default value to expenses, budgets and profile...
+            const body1 = { email, password };
+            const res1 = await axios.post('http://localhost:3000/api/user/login', body1, config);
+            const token = res1.data.token;
+
+            // Profile
+            const commanConfig = {
+                headers: {
+                    'Content-type': 'application/json',
+                    'token' : token
+                }
+            }
+            const age = 20, income = 100000;
+            const body2 = { age, income };
+            const res2 = await axios.post('http://localhost:3000/api/profile', body2, commanConfig);
+
+            // Budget
+            let groceries=21268, housing=12179, transportation=10634, clothing=4778, health=3143, disretionary=3592, education=2842, communication=1500, misc=10621
+            const body3 = {groceries, housing, transportation, clothing, health, disretionary, education, communication, misc};
+            const res3 = await axios.post('http://localhost:3000/api/budgets', body3, commanConfig);
+
+            // Expenses
+            groceries=0; housing=0; transportation=0; clothing=0; health=0; disretionary=0; education=0; communication=0; misc=0;
+            let totalExpense=0;
+            const body4 = {groceries, housing, transportation, clothing, health, disretionary, education, communication, misc, totalExpense };
+            const res4 = await axios.post('http://localhost:3000/api/expenses', body4, commanConfig);
+
         } catch (error) {
             console.log(error.response.data.error);
             setError(error.response.data.error);
-        }
+        }        
     }
-
+    
     if (isRegistered) {
         return <Redirect to='/login' />
     }
