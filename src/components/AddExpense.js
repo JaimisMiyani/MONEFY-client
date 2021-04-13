@@ -26,23 +26,23 @@ const AddExpense = () => {
             const res = await axios.put('http://localhost:3000/api/expenses/addExpense', body, config);
             console.log(res.data);
         } catch (error) {
-            if(error.response.data.error === "Expenses are not defined yet ..."){
+            // if(error.response.data.error === "Expenses are not defined yet ..."){
     
-                const groceries=0, housing=0, transportation=0, clothing=0, health=0, disretionary=0, education=0, communication=0, misc=0
-                const new_body = {groceries, housing, transportation, clothing, health, disretionary, education, communication, misc};
+            //     const groceries=0, housing=0, transportation=0, clothing=0, health=0, disretionary=0, education=0, communication=0, misc=0
+            //     const new_body = {groceries, housing, transportation, clothing, health, disretionary, education, communication, misc};
                 
-                console.log(new_body)
+            //     console.log(new_body)
 
-                try {
-                    const res = await axios.post('http://localhost:3000/api/expenses', new_body, config);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-                handleSubmit(e);
-            }
-            else {
+            //     try {
+            //         const res = await axios.post('http://localhost:3000/api/expenses', new_body, config);
+            //     } catch (error) {
+            //         console.log(error.response.data.error);
+            //     }
+            //     handleSubmit(e);
+            // }
+            // else {
                 setError(error.response.data.error);
-            }
+            // }
         }
     }
 
