@@ -100,8 +100,6 @@ const BudgetBreakdown = () => {
 
         await fetchProfile(config);
 
-        calculateReturn();
-
         console.log(budgets, expenses, income);
     }
 
@@ -119,12 +117,17 @@ const BudgetBreakdown = () => {
         setAges(newAges);
         setYearlyReturn(newYearlyReturn);
 
-        // console.log(ages, yearlyReturn);
+        console.log(ages, yearlyReturn);
     }
 
     useEffect(() => {
         fetchData();
     }, []);
+
+    useEffect(() => {
+        console.log(age);
+        calculateReturn();
+    }, [age, income]);
 
     return (
         <div>
