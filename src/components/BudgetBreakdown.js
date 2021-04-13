@@ -13,6 +13,8 @@ const BudgetBreakdown = () => {
     const [ages, setAges] = useState([]);
     const [yearlyReturn, setYearlyReturn] = useState([]);
 
+    const maxAge = 60;
+
     const fetchBudgets = async (config) => {
         try {
             const res = await axios.get('http://localhost:3000/api/budgets', config);
@@ -20,20 +22,7 @@ const BudgetBreakdown = () => {
             const newBudgets = res.data.data;
             setBudgets(newBudgets);
         } catch (error) {
-            if (error.response.data.error === "Budgets are not defined yet ...") {
-
-                const body = { groceries: 0, housing: 0, transportation: 0, clothing: 0, health: 0, disretionary: 0, education: 0, communication: 0, misc: 0 };
-
-                try {
-                    const res = await axios.post('http://localhost:3000/api/budgets', body, config);
-                    console.log(res);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-            }
-            else {
-                console.log(error.response.data.error);
-            }
+            console.log(error.response.data.error);
         }
     }
 
@@ -44,20 +33,7 @@ const BudgetBreakdown = () => {
             const newExpenses = res.data.data;
             setExpenses(newExpenses);
         } catch (error) {
-            if (error.response.data.error === "Expenses are not defined yet ...") {
-
-                const body = { groceries: 0, housing: 0, transportation: 0, clothing: 0, health: 0, disretionary: 0, education: 0, communication: 0, misc: 0 };
-
-                try {
-                    const res = await axios.post('http://localhost:3000/api/expenses', body, config);
-                    console.log(res);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-            }
-            else {
-                console.log(error.response.data.error);
-            }
+            console.log(error.response.data.error);
         }
     }
 
@@ -72,17 +48,6 @@ const BudgetBreakdown = () => {
             setIncome(res.data.data.income);
         } catch (error) {
             console.log(error.response.data.error);
-            if (error.response.data.error === 'Profile is not defined yet ...') {
-                try {
-                    const res = await axios.post('http://localhost:3000/api/profile', body, config);
-                    console.log(res);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-            }
-            else {
-                console.log(error.response.data.error);
-            }
         }
     }
 
@@ -106,12 +71,14 @@ const BudgetBreakdown = () => {
     const calculateReturn = () => {
 
         const newAges = [], newYearlyReturn = [];
+        const savings = income - expenses.totalExpense;
+        var total = savings;
 
-        for (var i = age; i <= 60; i++) {
-            newAges.push(i);
-            const val = (income - expenses.totalExpense) * ((Math.pow(1 + 0.04, (i - age) * 12) - 1) / 0.04);
+        for (var i = age; i <= maxAge; i++) {
+            total = (Math.round(total + (total*0.04))) + savings*12;
             // console.log(val);
-            newYearlyReturn.push(val);
+            newAges.push(i);
+            newYearlyReturn.push(total);
         }
 
         setAges(newAges);

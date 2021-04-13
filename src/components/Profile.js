@@ -24,17 +24,6 @@ const Profile = () => {
             console.log(res.data);
         } catch (error) {
             console.log(error.response.data.error);
-            if (error.response.data.error === 'Profile is not defined yet ...') {
-                try {
-                    const res = await axios.post('http://localhost:3000/api/profile', body, config);
-                    console.log(res);
-                } catch (error) {
-                    console.log(error.response.data.error);
-                }
-            }
-            else {
-                console.log(error.response.data.error);
-            }
         }
 
     }
