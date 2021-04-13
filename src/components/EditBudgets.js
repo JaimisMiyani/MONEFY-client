@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 
-const Budgets = () => {
+const EditBudgets = () => {
     // useState for budgets
     const [groceries, setGroceries] = useState(0);
     const [housing, setHousing] = useState(0);
@@ -69,6 +68,7 @@ const Budgets = () => {
 
                 try {
                     const res = await axios.post('http://localhost:3000/api/budgets', body, config);
+                    console.log(res);
                 } catch (error) {
                     console.log(error.response.data.error);
                 }
@@ -121,6 +121,6 @@ const Budgets = () => {
     )
 }
 
-export default Budgets
+export default EditBudgets
 
 // groceries, housing, transportation, clothing, health, disretionary, education, communication, misc

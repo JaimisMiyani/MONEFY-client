@@ -4,7 +4,7 @@ import DisplayError from './DisplayError';
 
 const AddExpense = () => {
     // useState for budgets
-    const [expense, setExpense] = useState('');
+    const [expense, setExpense] = useState('groceries');
 
     const [value, setValue] = useState('');
 
@@ -20,7 +20,7 @@ const AddExpense = () => {
         }
         const body = {expense, value};
 
-        console.log(body);
+        console.log(body, expense);
 
         try {
             const res = await axios.put('http://localhost:3000/api/expenses/addExpense', body, config);
@@ -36,7 +36,7 @@ const AddExpense = () => {
                 try {
                     const res = await axios.post('http://localhost:3000/api/expenses', new_body, config);
                 } catch (error) {
-                    console.log("here", error.response.data.error);
+                    console.log(error.response.data.error);
                 }
                 handleSubmit(e);
             }

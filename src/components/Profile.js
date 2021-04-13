@@ -7,8 +7,6 @@ const Profile = () => {
 
     const [income, setIncome] = useState(0);
 
-    const [error, setError] = useState('');
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -32,11 +30,10 @@ const Profile = () => {
                     console.log(res);
                 } catch (error) {
                     console.log(error.response.data.error);
-                    setError(error.response.data.error);
                 }
             }
             else {
-                setError(error.response.data.error);
+                console.log(error.response.data.error);
             }
         }
 
