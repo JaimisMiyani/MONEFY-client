@@ -3,12 +3,12 @@ import React from 'react'
 const Resources = () => {
     return (
         <div style={{ margin: '10px' }}>
-            <h5 className='shadow-sm p-3 bg-body rounded'>Let's get you known about Investment in India. Why Investing is Important & Where to Invest?</h5>
-            <p className='shadow-none p-3 bg-light rounded'>Investing is allocating money towards assets in the hope of making your future better. Investments are made with the view of earning returns, which grows your amount invested to a higher sum.</p>
-            <h3 className='shadow p-3 bg-body rounded'>Why Should You Invest?</h3>
-            <p className='shadow-none p-3 bg-light rounded'>Investing is essential to achieve your goals. It is the only way to make your future better. By making investments, you are also saving and accumulating a corpus for a rainy day. Apart from that, making regular investments forces you to set aside a sum regularly, thereby helping you instil a sense of financial discipline in the long run. </p>
-            <h3 className='shadow p-3 bg-body rounded'>Impact of Inflation and the Importance of Investing</h3>
-            <p className='shadow-none p-3 bg-light rounded'>Inflation, in simple terms, is a surge in the price of materials and services. It decreases the worth of your money and reduces your purchasing power. When there is a rise in the inflation rate, you buy fewer things with the same amount of money. You have no control over the inflation rate. If you are to stay ahead of inflation, you need to have more money to purchase the extent of the goods you intend to in the future with the money you have today. But, money doesn’t grow on its own. If your money has to grow, then it has to earn returns. To earn returns, you need to invest. Therefore, making investments is necessary to tackle inflation. Inflation at the rate of 8% means that you need 8% more money than what you have to purchase the same item next year. Here’s how inflation at 8% reduces the worth of Rs 1 lakh over eight years:</p>
+            <h5 className='shadow-sm p-3 rounded'>Let's get you known about Investment in India. Why Investing is Important & Where to Invest?</h5>
+            <p className='shadow-none p-3 rounded'>Investing is allocating money towards assets in the hope of making your future better. Investments are made with the view of earning returns, which grows your amount invested to a higher sum.</p>
+            <h3 className='shadow p-3 rounded'>Why Should You Invest?</h3>
+            <p className='shadow-none p-3 rounded'>Investing is essential to achieve your goals. It is the only way to make your future better. By making investments, you are also saving and accumulating a corpus for a rainy day. Apart from that, making regular investments forces you to set aside a sum regularly, thereby helping you instil a sense of financial discipline in the long run. </p>
+            <h3 className='shadow p-3 rounded'>Impact of Inflation and the Importance of Investing</h3>
+            <p className='shadow-none p-3 rounded'>Inflation, in simple terms, is a surge in the price of materials and services. It decreases the worth of your money and reduces your purchasing power. When there is a rise in the inflation rate, you buy fewer things with the same amount of money. You have no control over the inflation rate. If you are to stay ahead of inflation, you need to have more money to purchase the extent of the goods you intend to in the future with the money you have today. But, money doesn’t grow on its own. If your money has to grow, then it has to earn returns. To earn returns, you need to invest. Therefore, making investments is necessary to tackle inflation. Inflation at the rate of 8% means that you need 8% more money than what you have to purchase the same item next year. Here’s how inflation at 8% reduces the worth of Rs 1 lakh over eight years:</p>
             <table className='table table-sm table-dark' style={{ textAlign: 'center' }}>
                 <div className='class="table-responsive"'>
                     <table className='table align-middle'>
@@ -53,9 +53,9 @@ const Resources = () => {
                     </table>
                 </div>
             </table>
-            <p className='shadow-none p-3 bg-light rounded'>It is very important to earn inflation-beating returns, if not, you may not be able to afford materials and services in the future from the savings you are making now. </p>
-            <h3 className='shadow p-3 bg-body rounded'>Types of Investments</h3>
-            <p className='shadow-none p-3 bg-light rounded'>You have numerous investment options to choose from. You have to assess your requirements and risk profile before deciding to invest in any particular investment option. Investments are broadly divided into active and passive. Active investment requires you to dynamically change assets in your portfolio, depending on the market and economic developments. You need to have enough time and knowledge of investments to indulge yourself in active investments. Equity investments are the best example of active investments. On the other hand, passive investments do not require you to be hands-on with your investments. You invest your money and stay invested for a certain duration of time. It is also referred to as the buy-and-hold strategy of investment. This strategy of investment is advisable for those who can’t spare time to manage their investments. The following table shows the major differences between active and passive investments:</p>
+            <p className='shadow-none p-3 rounded'>It is very important to earn inflation-beating returns, if not, you may not be able to afford materials and services in the future from the savings you are making now. </p>
+            <h3 className='shadow p-3 rounded'>Types of Investments</h3>
+            <p className='shadow-none p-3 rounded'>You have numerous investment options to choose from. You have to assess your requirements and risk profile before deciding to invest in any particular investment option. Investments are broadly divided into active and passive. Active investment requires you to dynamically change assets in your portfolio, depending on the market and economic developments. You need to have enough time and knowledge of investments to indulge yourself in active investments. Equity investments are the best example of active investments. On the other hand, passive investments do not require you to be hands-on with your investments. You invest your money and stay invested for a certain duration of time. It is also referred to as the buy-and-hold strategy of investment. This strategy of investment is advisable for those who can’t spare time to manage their investments. The following table shows the major differences between active and passive investments:</p>
             <table className='table table-sm table-dark' style={{ textAlign: 'center' }}>
                 <div className='class="table-responsive"'>
                     <table className='table align-middle'>
@@ -91,25 +91,27 @@ const Resources = () => {
                     </table>
                 </div>
             </table>
-            <p className='shadow-none p-3 bg-light rounded'>You have to choose to adopt either an active or passive strategy after you have assessed your requirements and risk tolerance level. </p>
-            <h3 className='shadow p-3 bg-body rounded'>Popular Investment Options in India</h3>
-            <p className='shadow-none p-3 bg-light rounded'>You have numerous investment options to choose from. However, you have to ensure that you are investing in only those options that fall under your risk tolerance and serve your requirements. The following are the top 7 investment options in India:</p>
-            <ul className='list-group list-group-flush'>
-                <li className='list-group-item'>Direct Equity</li>
-                <li className='list-group-item'>Mutual Funds</li>
-                <li className='list-group-item'>Fixed Deposits</li>
-                <li className='list-group-item'>Recurring Deposits</li>
-                <li className='list-group-item'>Public Provident Fund</li>
-                <li className='list-group-item'>Employee Provident Fund</li>
-                <li className='list-group-item'>National Pension System</li>
-            </ul>
-            <h3 className='shadow p-3 bg-body rounded'>Which Investment Option Should You Choose?</h3>
-            <p className='shadow-none p-3 bg-light rounded'>Since there are numerous investment vehicles, it is normal for an investor to get stuck when selecting one. If you are new to investing, then it is likely that you are not sure as to where you should invest your money. Making the wrong investment choice can lead to financial losses, which you would not want. Hence, we recommend that you base your investment decisions on the following parameters: </p>
-            <ul className='list-group list-group-flush'>
-                <li className='list-group-item'>Age</li>
-                <li className='list-group-item'>Goal</li>
-                <li className='list-group-item'>Profile</li>
-            </ul>
+            <p className='shadow-none p-3 rounded'>You have to choose to adopt either an active or passive strategy after you have assessed your requirements and risk tolerance level. </p>
+            <h3 className='shadow p-3 rounded'>Popular Investment Options in India</h3>
+            <p className='shadow-none p-3 rounded'>You have numerous investment options to choose from. However, you have to ensure that you are investing in only those options that fall under your risk tolerance and serve your requirements. The following are the top 7 investment options in India:
+                <ul className='list-group list-group-flush'>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Direct Equity</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Mutual Funds</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Fixed Deposits</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Recurring Deposits</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Public Provident Fund</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Employee Provident Fund</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>National Pension System</li>
+                </ul>
+            </p>
+            <h3 className='shadow p-3 rounded'>Which Investment Option Should You Choose?</h3>
+            <p className='shadow-none p-3 rounded'>Since there are numerous investment vehicles, it is normal for an investor to get stuck when selecting one. If you are new to investing, then it is likely that you are not sure as to where you should invest your money. Making the wrong investment choice can lead to financial losses, which you would not want. Hence, we recommend that you base your investment decisions on the following parameters:
+                <ul className='list-group list-group-flush'>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Age</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Goal</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Profile</li>
+                </ul>
+            </p>
             <table className='table table-sm table-dark' style={{ textAlign: 'center' }}>
                 <div className='class="table-responsive"'>
                     <table className='table align-middle'>
@@ -176,17 +178,18 @@ const Resources = () => {
                     </table>
                 </div>
             </table>
-            <h3 className='shadow p-3 bg-body rounded'>How should I plan my investments?</h3>
-            <p className='shadow-none p-3 bg-light rounded'>The first step in planning your investments is to figure out the right investment that fits your profile and needs. Here are a few things to keep in mind when planning your investments:</p>
-            <ul className='list-group list-group-flush'>
-                <li className='list-group-item'>Choose investments carefully after doing adequate research</li>
-                <li className='list-group-item'>Don’t fall for quick-buck schemes that promise high returns in a short time</li>
-                <li className='list-group-item'>Review your stock and mutual fund investments periodically</li>
-                <li className='list-group-item'>Consider the tax implications on returns you earn on your investments</li>
-                <li className='list-group-item'>Keep things simple and avoid complicated investments that you don’t understand</li>
-            </ul>
-            <h3 className='shadow p-3 bg-body rounded'>The sooner you start, the better</h3>
-            <p className='shadow-none p-3 bg-light rounded'>You should get started with your investments as soon as possible. When it comes to investments, time is money. The sooner you get started, and longer you stay invested, the more returns you earn on your investments. Consider the following example. Suppose you start investing Rs 1 lakh a year from the time you turn 25 years old and continue to do so until you turn 58 years, along with your brother who is already 35 years old. Consider you both invest in a scheme which offers returns at 10% a year. Let’s compare how your investments rack up against one another upon maturity:</p>
+            <h3 className='shadow p-3 rounded'>How should I plan my investments?</h3>
+            <p className='shadow-none p-3 rounded'>The first step in planning your investments is to figure out the right investment that fits your profile and needs. Here are a few things to keep in mind when planning your investments:
+                <ul className='list-group list-group-flush'>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Choose investments carefully after doing adequate research</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Don’t fall for quick-buck schemes that promise high returns in a short time</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Review your stock and mutual fund investments periodically</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Consider the tax implications on returns you earn on your investments</li>
+                    <li className='list-group-item' style={{ backgroundColor: '#d6efc7' }}>Keep things simple and avoid complicated investments that you don’t understand</li>
+                </ul>
+            </p>
+            <h3 className='shadow p-3 rounded'>The sooner you start, the better</h3>
+            <p className='shadow-none p-3 rounded'>You should get started with your investments as soon as possible. When it comes to investments, time is money. The sooner you get started, and longer you stay invested, the more returns you earn on your investments. Consider the following example. Suppose you start investing Rs 1 lakh a year from the time you turn 25 years old and continue to do so until you turn 58 years, along with your brother who is already 35 years old. Consider you both invest in a scheme which offers returns at 10% a year. Let’s compare how your investments rack up against one another upon maturity:</p>
             <table className='table table-sm table-dark' style={{ textAlign: 'center' }}>
                 <div className='class="table-responsive"'>
                     <table className='table align-middle'>
@@ -244,7 +247,7 @@ const Resources = () => {
                     </table>
                 </div>
             </table>
-            <p className='shadow-none p-3 bg-light rounded'>As you can see from the table above, the difference is huge. You earn way more than your brother because you started early. Your brother’s investment horizon is shorter by ten years. You unleashed the power of compounding to the fullest, while your brother didn’t. Hence, the sooner you start investing, the better. </p>
+            <p className='shadow-none p-3 rounded'>As you can see from the table above, the difference is huge. You earn way more than your brother because you started early. Your brother’s investment horizon is shorter by ten years. You unleashed the power of compounding to the fullest, while your brother didn’t. Hence, the sooner you start investing, the better. </p>
         </div>
     )
 }

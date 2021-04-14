@@ -1,0 +1,27 @@
+p {
+    background-color: #d6efc7;
+}
+
+h3 {
+    background-color: #96bb7c;
+}
+
+h5 {
+    color: #fff;
+    background-color: #184d47;
+}
+
+table {
+    background-color: #d6efc7;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.btn {
+    color: #ffffff;
+    background-color: #184d47;
+}
