@@ -8,13 +8,13 @@ const BudgetBreakdown = () => {
                 <div className="card-header">
                     <ul className="nav nav-tabs card-header-tabs">
                         <li className="nav-item ">
-                            <a className="nav-link active color1" href="./Statistics">Budget and Expense Breakdown</a>
+                            <a className="nav-link active color1" href="./budgetBreakdown">Budget and Expense Breakdown</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link color1" href="./EditBudgets">Modify Budgets</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link color1" href="#">Financial Tips</a>
+                            <a className="nav-link color1" href="./tips">Financial Tips</a>
                         </li>
                     </ul>
                 </div>

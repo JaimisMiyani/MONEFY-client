@@ -79,96 +79,115 @@ const EditBudgets = () => {
     }, []);
 
     return (
-        <div style={{ margin: '10px' }}>
-            <div>
-                <p className='shadow-none p-3 rounded' style={{ backgroundColor: '#d6efc7' }}>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
-            </div>
-            <div className='centered'>
-                {error && <DisplayError error={error} />}
-                {message && <DisplayMessage message={message} />}
-            </div>
-            <div className='centered'>
-                <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
-                    <div className='card-header' style={{ backgroundColor: '#96bb7c' }}>Budgets</div>
-                    <div className='card-body'>
-                        <table>
-                            <tr>
-                                <td><label>Groceries</label></td>
-                                <td><input type='text' value={groceries.value} onChange={(e) => setGroceries({ ...groceries, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'groceries', groceries);
-                                    setGroceries({ ...groceries, isUpdated: true });
-                                }}>{groceries.isUpdated ? 'Updated' : 'Update'}</button></td>
-                            </tr>
-                            <tr>
-                                <td><label>Housing</label></td>
-                                <td><input type='text' value={housing.value} onChange={(e) => setHousing({ ...housing, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'housing', housing);
-                                    setHousing({ ...housing, isUpdated: true });
-                                }}>{housing.isUpdated ? 'Updated' : 'Update'}</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Transportation</label></td>
-                                <td><input type='text' value={transportation.value} onChange={(e) => setTransportation({ ...transportation, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'transportation', transportation);
-                                    setTransportation({ ...transportation, isUpdated: true });
-                                }}>{transportation.isUpdated ? 'Updated' : 'Update'}</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Clothing</label></td>
-                                <td><input type='text' value={clothing.value} onChange={(e) => setClothing({ ...clothing, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'clothing', clothing);
-                                    setClothing({ ...clothing, isUpdated: true });
-                                }}>{clothing.isUpdated ? 'Updated' : 'Update'}</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><label>Health</label></td>
-                                <td><input type='text' value={health.value} onChange={(e) => setHealth({ ...health, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'health', health);
-                                    setHealth({ ...health, isUpdated: true });
-                                }}>{health.isUpdated ? 'Updated' : 'Update'}</button><br /></td>
-                            </tr>
-                            <tr>
-                                <td><label>Disretionary</label></td>
-                                <td><input type='text' value={disretionary.value} onChange={(e) => setDisretionary({ ...disretionary, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'disretionary', disretionary);
-                                    setDisretionary({ ...disretionary, isUpdated: true });
-                                }}>{disretionary.isUpdated ? 'Updated' : 'Update'}</button></td>
-                            </tr>
-                            <tr>
-                                <td><label>Education</label></td>
-                                <td><input type='text' value={education.value} onChange={(e) => setEducation({ ...education, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'education', education);
-                                    setEducation({ ...education, isUpdated: true });
-                                }}>{education.isUpdated ? 'Updated' : 'Update'}</button></td>
-                            </tr>
-                            <tr>
-                                <td><label>Communication</label></td>
-                                <td><input type='text' value={communication.value} onChange={(e) => setCommunication({ ...communication, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'communication', communication);
-                                    setCommunication({ ...communication, isUpdated: true });
-                                }}>{communication.isUpdated ? 'Updated' : 'Update'}</button></td>
-                            </tr>
-                            <tr>
-                                <td><label>Misc</label></td>
-                                <td><input type='text' value={misc.value} onChange={(e) => setMisc({ ...misc, value: e.target.value })}></input></td>
-                                <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
-                                    handleSubmit(e, 'misc', misc);
-                                    setMisc({ ...misc, isUpdated: true });
-                                }}>{misc.isUpdated ? 'Updated' : 'Update'}</button></td>
-                            </tr>
-                        </table>
-                    </div>
+        <div className="mx-5 mt-5">
+            <div className="card" style={{border:'none'}}>
+                <div className="card-header">
+                    <ul className="nav nav-tabs card-header-tabs">
+                        <li className="nav-item ">
+                            <a className="nav-link color1" href="./budgetBreakdown">Budget and Expense Breakdown</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link active color1" href="./EditBudgets">Modify Budgets</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link color1" href="./tips">Financial Tips</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className="card-body">
+                    <div className="mx-auto" style={{border : '1px solid black'}}>
+                        <div>
+                            <p className='shadow-none mx-2 mt-2 p-3 rounded' style={{ backgroundColor: '#d6efc7' }}>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
+                        </div>
+                        <div className='centered'>
+                            {error && <DisplayError error={error} />}
+                            {message && <DisplayMessage message={message} />}
+                        </div>
+                        <div className='centered'>
+                            <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
+                                <div className='card-header' style={{ backgroundColor: '#96bb7c' }}>Budgets</div>
+                                <div className='card-body'>
+                                    <table>
+                                        <tr>
+                                            <td><label>Groceries</label></td>
+                                            <td><input type='text' value={groceries.value} onChange={(e) => setGroceries({ ...groceries, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'groceries', groceries);
+                                                setGroceries({ ...groceries, isUpdated: true });
+                                            }}>{groceries.isUpdated ? 'Updated' : 'Update'}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Housing</label></td>
+                                            <td><input type='text' value={housing.value} onChange={(e) => setHousing({ ...housing, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'housing', housing);
+                                                setHousing({ ...housing, isUpdated: true });
+                                            }}>{housing.isUpdated ? 'Updated' : 'Update'}</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Transportation</label></td>
+                                            <td><input type='text' value={transportation.value} onChange={(e) => setTransportation({ ...transportation, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'transportation', transportation);
+                                                setTransportation({ ...transportation, isUpdated: true });
+                                            }}>{transportation.isUpdated ? 'Updated' : 'Update'}</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Clothing</label></td>
+                                            <td><input type='text' value={clothing.value} onChange={(e) => setClothing({ ...clothing, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'clothing', clothing);
+                                                setClothing({ ...clothing, isUpdated: true });
+                                            }}>{clothing.isUpdated ? 'Updated' : 'Update'}</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Health</label></td>
+                                            <td><input type='text' value={health.value} onChange={(e) => setHealth({ ...health, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'health', health);
+                                                setHealth({ ...health, isUpdated: true });
+                                            }}>{health.isUpdated ? 'Updated' : 'Update'}</button><br /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Disretionary</label></td>
+                                            <td><input type='text' value={disretionary.value} onChange={(e) => setDisretionary({ ...disretionary, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'disretionary', disretionary);
+                                                setDisretionary({ ...disretionary, isUpdated: true });
+                                            }}>{disretionary.isUpdated ? 'Updated' : 'Update'}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Education</label></td>
+                                            <td><input type='text' value={education.value} onChange={(e) => setEducation({ ...education, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'education', education);
+                                                setEducation({ ...education, isUpdated: true });
+                                            }}>{education.isUpdated ? 'Updated' : 'Update'}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Communication</label></td>
+                                            <td><input type='text' value={communication.value} onChange={(e) => setCommunication({ ...communication, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'communication', communication);
+                                                setCommunication({ ...communication, isUpdated: true });
+                                            }}>{communication.isUpdated ? 'Updated' : 'Update'}</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>Misc</label></td>
+                                            <td><input type='text' value={misc.value} onChange={(e) => setMisc({ ...misc, value: e.target.value })}></input></td>
+                                            <td style={{textAlign:'center'}}><button className='btn btn-success btn-sm' onClick={(e) => {
+                                                handleSubmit(e, 'misc', misc);
+                                                setMisc({ ...misc, isUpdated: true });
+                                            }}>{misc.isUpdated ? 'Updated' : 'Update'}</button></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
