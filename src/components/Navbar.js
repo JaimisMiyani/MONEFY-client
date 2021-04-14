@@ -8,7 +8,7 @@ const Navbar = ({ onLogout }) => {
                 <NavLink exact to='/' className="navbar-brand">Revest</NavLink>
                 <ul className='navbar-nav d-flex '>
                     <li className='nav-item'>
-                        <NavLink exact to='/investmentResources' className='nav-link'>Investment Resources</NavLink>
+                        <NavLink exact to='/resources' className='nav-link'>Investment Resources</NavLink>
                     </li>
                     {localStorage.getItem('token') ?
                         <>
