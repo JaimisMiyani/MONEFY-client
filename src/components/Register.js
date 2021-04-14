@@ -4,6 +4,7 @@ import axios from 'axios'
 import DisplayError from './DisplayError';
 import { BsPersonPlusFill } from "react-icons/bs";
 
+
 const Register = ({ onLogin }) => {
 
     const [email, setEmail] = useState('');
