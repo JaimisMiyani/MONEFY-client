@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom'
 import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
@@ -15,6 +15,7 @@ import Resources from './components/Resources';
 import Tips from './components/Tips';
 import Statistics from './components/Statistics';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import { faRegistered } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
         <Navbar onLogout={logout} />
       </div>
       <Switch>
-        <Route path="/register" exact render={() => <Register />} />
+        <Route path="/register" exact render={() => <Register onLogin={login} />} />
         <Route path="/login" exact render={() => <Login onLogin={login} />} />
         <Route path="/resources" exact render={() => <Resources />} />
         <PrivateRoute path="/editBudgets" exact component={EditBudgets} />

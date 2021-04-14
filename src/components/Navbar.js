@@ -22,7 +22,7 @@ const Navbar = ({ onLogout }) => {
                                 <li className='nav-item'>
                                     <NavLink exact to='/profile' className='nav-link' style={{color:'white'}}>Profile</NavLink>
                                 </li>
-                                <button className='btn btn-danger btn-lg' onClick={() => onLogout()}>Logout</button>
+                                <button className='btn btn-danger btn' style={{marginLeft:'7px'}} onClick={() => onLogout()}>Logout</button>
                             </>
                             : <>
                                 <li className='nav-item'>

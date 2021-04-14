@@ -15,10 +15,10 @@ const AddExpense = () => {
         const config = {
             headers: {
                 'Content-type': 'application/json',
-                'token' : localStorage.getItem('token')
+                'token': localStorage.getItem('token')
             }
         }
-        const body = {expense, value};
+        const body = { expense, value };
 
         console.log(body, expense);
 
@@ -32,24 +32,38 @@ const AddExpense = () => {
     }
 
     return (
-        <div>
-            { error && <DisplayError error={error} />}
+        <div style={{ margin: '10px' }}>
             <div>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <select name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
-                        <option value="groceries" defaultValue>Groceries</option>
-                        <option value="housing">Housing</option>
-                        <option value="transportation">Transportation</option>
-                        <option value="clothing">Clothing</option>
-                        <option value="health">Health</option>
-                        <option value="disretionary">Disretionary</option>
-                        <option value="education">Education</option>
-                        <option value="communication">Communication</option>
-                        <option value="misc">Misc</option>
-                    </select>
-                    <input type="number" onChange={(e) => setValue(e.target.value)}></input>
-                    <input type='submit' value='Add Expense' />
-                </form>
+                <p className='p-3'>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
+            </div>
+            { error && <DisplayError error={error} />}
+            <div className='centered'>
+                <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
+                    <div className='card-body'>
+                        <table>
+                            <tr>
+                                <td><select name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
+                                    <option value="groceries" defaultValue>Groceries</option>
+                                    <option value="housing">Housing</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="health">Health</option>
+                                    <option value="disretionary">Disretionary</option>
+                                    <option value="education">Education</option>
+                                    <option value="communication">Communication</option>
+                                    <option value="misc">Misc</option>
+                                </select></td>
+                                <td><input type="number" onChange={(e) => setValue(e.target.value)}></input></td>
+                            </tr>
+                            <tr>
+                                <td colSpan='2' style={{ textAlign: 'center' }}><button className='btn' style={{ backgroundColor: '#184d47', color: '#fff' }} onClick={(e) => handleSubmit(e)}>AddExpense</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div className='centered'>
+                <button className='btn btn-danger'>Reset Expenses</button>
             </div>
         </div>
     )

@@ -53,14 +53,32 @@ const Profile = () => {
     }, []);
 
     return (
-        <div>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <label>Age</label>
-                <input type='number' value={age} onChange={(e) => setAge(e.target.value)} />
-                <label>Income</label>
-                <input type='number' value={income} onChange={(e) => setIncome(e.target.value)} />
-                <input type='submit' value='Submit' />
-            </form>
+        <div style={{margin:'10px'}}>
+            <div>
+                <p className='p-3'>Here you can set your income and age so that we can calculate your return accordingly.</p>
+            </div>
+            <div className='centered'>
+                <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
+                    <div className='card-body'>
+                        <table>
+                            <tr>
+                                <td><label>Age</label></td>
+                                <td><input type='number' value={age} onChange={(e) => setAge(e.target.value)} /></td>
+                            </tr>
+                            <tr>
+                                <td><label>Income</label></td>
+                                <td><input type='number' value={income} onChange={(e) => setIncome(e.target.value)} /></td>
+                            </tr>
+                            <tr>
+                                <td colSpan='2' style={{ textAlign: 'center' }}><button className='btn' style={{ backgroundColor: '#184d47', color: '#fff' }} onClick={(e) => handleSubmit(e)}>Submit</button></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div className='centered'>
+                <button className='btn btn-danger'>Delete this Account</button>
+            </div>
         </div>
     )
 }
