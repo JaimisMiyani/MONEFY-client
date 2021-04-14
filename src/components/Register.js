@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import DisplayError from './DisplayError';
+import { BsPersonPlusFill } from "react-icons/bs";
 
 const Register = () => {
 
@@ -77,19 +78,37 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div >
             { error && <DisplayError error={error} />}
-            <div>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <label>Name</label>
-                    <input type='text' onChange={(e) => setName(e.target.value)}></input>
-                    <label>Email</label>
-                    <input type='email' onChange={(e) => setEmail(e.target.value)}></input>
-                    <label>Password</label>
-                    <input type='password' onChange={(e) => setPassword(e.target.value)}></input>
-                    <label>Confirm Password</label>
-                    <input type='password' onChange={(e) => setConfirmPassword(e.target.value)}></input>
-                    <input type='submit' value='Submit' />
+            <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{borderColor:'#184d47'}}> 
+                <form className="card-body" onSubmit={(e) => handleSubmit(e)} >
+                    <div className="form-group col-sm text-left">
+                        <h3>Create Account</h3>
+                        <p>Already have an account? <a className="p blue" href="/login" style={{color:'#184d47'}}><u>sign in</u></a></p>
+                    </div>
+
+                    <div className="form-group col-sm">
+                        <input className="form-control" placeholder="Name" type='text' onChange={(e) => setName(e.target.value)}></input>
+                    </div>
+
+                    <div className="form-group col-sm">
+                        <input className="form-control" type='email' placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input>
+                    </div>
+
+                    <div className="form-group col-sm text-left">
+                        <input className="form-control" type='password' placeholder="Password" onChange={(e) => setPassword(e.target.value)}></input>
+                    </div>
+
+                    <div className="form-group col-sm text-left">
+                        <input className="form-control" type='password' placeholder="Password Confirmation" onChange={(e) => setConfirmPassword(e.target.value)}></input>
+                    </div>
+
+                    <div className="form-group col-sm text-left">
+                        <button type='submit' className="btn btn-block p" style={{backgroundColor:'#184d47'}}>
+                            <BsPersonPlusFill className="mb-1 text-white"/>
+                            <span className="text-white"> Register</span>
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

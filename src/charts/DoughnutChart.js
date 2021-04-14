@@ -5,7 +5,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
 
   const options = {
     maintainAspectRatio: true,
-    aspectRatio: 1.5,
+    aspectRatio: 1.6,
     centerText: {
       display: true,
       text: {income},
@@ -13,7 +13,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
       backgroundColor : '#00ff00'
     },
     legend: {
-      position: "top",
+      position: "left",
     },
     title: {
       display: true,
@@ -54,7 +54,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
   return (
     <div style={{ position: 'relative'}}>
         <Doughnut data={data} options={options} width={null} height={null}/>
-        <div style={{ position: 'absolute', width: '100%', top: '55%', left: 0, textAlign: 'center', lineHeight: '20px', fontSize : '40px'}}>
+        <div style={{ position: 'absolute', width: '100%', top: '55%', left: 70, textAlign: 'center', lineHeight: '20px', fontSize : '20px'}}>
             <span><b>
                 {income}&#x20B9;
             </b></span>

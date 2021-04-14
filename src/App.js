@@ -13,6 +13,8 @@ import axios from 'axios';
 import BudgetBreakdown from './components/BudgetBreakdown';
 import Resources from './components/Resources';
 import Tips from './components/Tips';
+import Statistics from './components/Statistics';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
 
@@ -71,6 +73,7 @@ function App() {
         <PrivateRoute path="/profile" exact component={Profile} />
         <PrivateRoute path="/budgetBreakdown" exact component={BudgetBreakdown} />
         <PrivateRoute path="/tips" exact component={Tips} />
+        <PrivateRoute path="/statistics" exact component={Statistics} />
         <Route path="/" exact render={() => <Home />} />
       </Switch>
     </Router>
