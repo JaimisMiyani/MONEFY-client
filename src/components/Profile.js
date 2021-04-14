@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Redirect} from 'react-router-dom'
 import axios from 'axios'
 
 const Profile = () => {
@@ -6,6 +7,8 @@ const Profile = () => {
     const [age, setAge] = useState(0);
 
     const [income, setIncome] = useState(0);
+
+    const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,6 +25,7 @@ const Profile = () => {
         try {
             const res = await axios.put('http://localhost:3000/api/profile', body, config);
             console.log(res.data);
+            setMessage('Profile Updated!');
         } catch (error) {
             console.log(error.response.data.error);
         }
@@ -51,6 +55,10 @@ const Profile = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+    if(message === 'Profile Updated!') {
+        return <Redirect to='/' /> 
+    }
 
     return (
         <div style={{margin:'10px'}}>

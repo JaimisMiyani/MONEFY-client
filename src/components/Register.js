@@ -38,7 +38,6 @@ const Register = ({ onLogin }) => {
         try {
             const res = await axios.post('http://localhost:3000/api/user/register', body, config);
             console.log(res.data);
-            setIsRegistered(true);
 
             // setting default value to expenses, budgets and profile...
             const body1 = { email, password };
@@ -70,11 +69,12 @@ const Register = ({ onLogin }) => {
 
             localStorage.setItem('token', token);
             onLogin({_id: userId});
+            setIsRegistered(true);
 
         } catch (error) {
             console.log(error);
             // setError(error.response.data.error);
-        }
+        } 
     }
 
     if(isRegistered && localStorage.getItem('token')) {
