@@ -33,7 +33,7 @@ const AddExpense = () => {
 
     return (
         <div style={{ margin: '10px' }}>
-            <div>
+            <div style={{textAlign:'center'}}>
                 <p className='p-3'>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
             </div>
             { error && <DisplayError error={error} />}

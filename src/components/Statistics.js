@@ -3,6 +3,8 @@ import RadarChart from '../charts/RadarChart';
 import DoughnutChart from '../charts/DoughnutChart';
 import axios from 'axios';
 import InvestmentChart from '../charts/InvestmentChart';
+import ProgressBars from '../charts/ProgressBars';
+import { Redirect } from 'react-router-dom';
 
 const Statistics = () => {
 
@@ -11,6 +13,9 @@ const Statistics = () => {
     const [income, setIncome] = useState(0);
     const [age, setAge] = useState(0);
     const [ages, setAges] = useState([]);
+    const [investment, setInvestment] = useState(0);
+    const [surpassed, setSurpassed] = useState(false);
+    const [finalAmt, setFinalAmt] = useState(0);
     const [yearlyReturn, setYearlyReturn] = useState([]);
 
     const maxAge = 60;
@@ -68,19 +73,31 @@ const Statistics = () => {
         console.log(budgets, expenses, income);
     }
 
+    const handleClick = (e) => {
+        e.preventDefault();
+        return <Redirect to='/resources' />
+    }
+
     const calculateReturn = () => {
 
         const newAges = [], newYearlyReturn = [];
         const savings = income - expenses.totalExpense;
-        var total = savings;
+        var total = savings * 0.8;
+
+        setInvestment(total);
+
+        if (savings < income * 0.2) {
+            setSurpassed(true);
+        }
 
         for (var i = age; i <= maxAge; i++) {
-            total = (Math.round(total + (total*0.04))) + savings*12;
+            total = (Math.round(total + (total * 0.04))) + savings * 12;
             // console.log(val);
             newAges.push(i);
             newYearlyReturn.push(total);
         }
 
+        setFinalAmt(total);
         setAges(newAges);
         setYearlyReturn(newYearlyReturn);
     }
@@ -95,31 +112,33 @@ const Statistics = () => {
 
     return (
         <>
-            <div className="card-group mx-auto" style={{width:'80%', height : '770px'}}>
+            <div className="card-group mx-auto" style={{ width: '80%', height: '1000px' }}>
                 <div className="card">
-                    <div className="pl-4 pt-3" style={{height:'50%', width:'100%'}}>
+                    <div className="pl-4 pt-3" style={{ height: '50%', width: '100%' }}>
                         <DoughnutChart budgets={expenses} income={income} chartTitle="Your Expenses" />
                     </div>
 
-                    <div className="pl-4 pt-3" style={{height:'50%', width:'100%'}}>
+                    <div className="pl-4 pt-3" style={{ height: '50%', width: '100%' }}>
                         <DoughnutChart budgets={budgets} income={income} chartTitle="Your Custom Budgets" />
                     </div>
                 </div>
-                
-                <div className="card temp">
-                    <div className="my-auto">
+
+                <div className="card">
+                    <div className="pl-4 pt-3" style={{ height: '60%', width: '100%' }}>
                         <RadarChart budgets={budgets} expenses={expenses} />
+                    </div>
+                    <div className="pl-4 pt-3" style={{ height: '40%', width: '100%' }}>
+                        <ProgressBars expenses={expenses} income={income} />
                     </div>
                 </div>
             </div>
 
-            <div className="card mx-auto my-5" style={{width:'70%', height : '650px'}}>
+            <div className="card mx-auto my-5" style={{ width: '70%', height: '800px' }}>
                 <div className="card-body py-auto">
-                    <h3 className="card-title">- Enter Title Here -</h3>
-                    <p className="card-text">- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -- Enter Text Here -</p>
-                    <InvestmentChart ages={ages} yearlyReturn={yearlyReturn} />
+                    <h3 className="card-title">Let's get your money to work</h3>
+                    <InvestmentChart ages={ages} yearlyReturn={yearlyReturn} investment={investment} surpassed={surpassed} finalAmt={finalAmt} handleClick={handleClick}/>
                 </div>
-            </div> 
+            </div>
         </>
     )
 }
