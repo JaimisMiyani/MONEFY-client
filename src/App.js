@@ -27,6 +27,7 @@ function App() {
 
   const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('userName');
     localStorage.clear()
     setUser({ auth: { user: {} } });
   };
@@ -47,7 +48,7 @@ function App() {
 
       try {
         const res = await axios.get('http://localhost:3000/api/user/getUserId', config);
-        console.log(res.data);
+        console.log(res);
         setUser({ auth: { user: res.data.userId } });
       } catch (error) {
         console.log(error.response.data.error);
@@ -63,7 +64,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Navbar onLogout={logout} />
+        <Navbar onLogout={logout}/>
       </div>
       <Switch>
         <Route path="/register" exact render={() => <Register onLogin={login} />} />

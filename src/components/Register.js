@@ -69,6 +69,7 @@ const Register = ({ onLogin }) => {
             const res4 = await axios.post('http://localhost:3000/api/expenses', body4, commanConfig);
 
             localStorage.setItem('token', token);
+            localStorage.setItem('userName', name);
             onLogin({_id: userId});
             setIsRegistered(true);
 

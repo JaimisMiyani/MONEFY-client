@@ -1,12 +1,12 @@
-p {
+.ptag {
     background-color: #d6efc7;
 }
 
-h3 {
+.h3tag {
     background-color: #96bb7c;
 }
 
-h5 {
+.h5tag {
     color: #fff;
     background-color: #184d47;
 }
@@ -119,4 +119,8 @@ table > tr {
 
 .nav-link:hover {
     box-shadow: 0px 0px 0px 2px #96bb7c !important;
+}
+
+.setShadow {
+    box-shadow: 0px 15px 10px -15px black;    
 }

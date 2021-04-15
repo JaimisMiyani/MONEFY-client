@@ -115,7 +115,7 @@ const Profile = () => {
                 </div>
 
                 <div className="form-group col-sm text-left text-muted">
-                    <p>Optionally, you can edit this later and <a className="p blue" href="/" style={{ color: '#184d47' }}><u>sign in</u></a></p>
+                    <p>Optionally, you can edit this later and <a className="p blue" href="/" style={{ color: '#184d47' }}><u>skip for now</u></a></p>
                 </div>
             </form>
         </div>

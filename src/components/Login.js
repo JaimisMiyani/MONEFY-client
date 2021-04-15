@@ -26,8 +26,20 @@ const Login = ({onLogin}) => {
 
         try {
             const res = await axios.post('http://localhost:3000/api/user/login', body, config);
-            console.log(res.data);
+            console.log("user", res.data);
             localStorage.setItem('token', res.data.token);
+
+            const config1 = {
+                headers: {
+                    'Content-type': 'application/json',
+                    'token' : localStorage.setItem('token', res.data.token)
+                }
+            }
+            const res1 = await axios.get('http://localhost:3000/api/user/getUserName', config1);
+            console.log("yep email", res1);
+
+            
+            // localStorage.setItem('userName', res.data.token);
             setIsAuthenticated(true);
             onLogin(res.data);
         } catch (error) {

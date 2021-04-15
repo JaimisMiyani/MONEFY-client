@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Statistics from './Statistics'
+import { NavLink } from 'react-router-dom'
 
 const BudgetBreakdown = () => {
     return (
@@ -8,13 +9,13 @@ const BudgetBreakdown = () => {
                 <div className="card-header">
                     <ul className="nav nav-tabs card-header-tabs">
                         <li className="nav-item ">
-                            <a className="nav-link active color1" href="./budgetBreakdown">Budget and Expense Breakdown</a>
+                            <NavLink exact to='./budgetBreakdown' className="nav-link active color1">Budget and Expense Breakdown</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link color1" href="./EditBudgets">Modify Budgets</a>
+                            <NavLink exact to='./EditBudgets' className="nav-link color1">Modify Budgets</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link color1" href="./tips">Financial Tips</a>
+                            <NavLink exact to='./tips' className="nav-link color1">Financial Tips</NavLink>
                         </li>
                     </ul>
                 </div>
