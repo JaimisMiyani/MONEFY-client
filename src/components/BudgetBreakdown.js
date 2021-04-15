@@ -9,13 +9,13 @@ const BudgetBreakdown = () => {
                 <div className="card-header">
                     <ul className="nav nav-tabs card-header-tabs">
                         <li className="nav-item ">
-                            <NavLink exact to='./budgetBreakdown' className="nav-link active color1">Budget and Expense Breakdown</NavLink>
+                            <NavLink exact to='./budgetBreakdown' className="nav-link active addBorder color1">Budget and Expense Breakdown</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to='./EditBudgets' className="nav-link color1">Modify Budgets</NavLink>
+                            <NavLink exact to='./EditBudgets' className="nav-link addBorder color1">Modify Budgets</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact to='./tips' className="nav-link color1">Financial Tips</NavLink>
+                            <NavLink exact to='./tips' className="nav-link addBorder color1">Financial Tips</NavLink>
                         </li>
                     </ul>
                 </div>

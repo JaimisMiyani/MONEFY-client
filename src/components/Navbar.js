@@ -1,42 +1,67 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { FaUserCircle } from "react-icons/fa";
-
+import { FaUserCircle, FaChartPie, FaBook, FaSignInAlt, FaSignOutAlt, FaUserEdit } from "react-icons/fa";
+import { ImProfile } from "react-icons/im";
+import { RiAddCircleLine } from "react-icons/ri";
+import { BsPersonPlusFill } from "react-icons/bs";
 
 const Navbar = ({ onLogout }) => {
     return (
         <div className="setShadow" style={{backgroundColor:'#184d47', color:'#fff'}}>
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className='container-fluid'>
-                    <NavLink exact to='/' className="navbar-brand" style={{color:'white'}}>Revest</NavLink>
-                    <ul className='navbar-nav d-flex '>
+                    <NavLink exact to='/' className="navbar-brand text-white">Revest</NavLink>
+                    <ul className='navbar-nav d-flex'>
                         <li className='nav-item'>
-                            <NavLink exact to='/resources' className='nav-link' style={{color:'white'}}>Investment Resources</NavLink>
+                            <NavLink exact to='/resources' className='nav-link text-white setBold'>
+                                <FaBook className="mb-1" /> Investment Resources
+                            </NavLink>
                         </li>
                         {localStorage.getItem('token') ?
                             <>
                                 <li className='nav-item'>
-                                    <NavLink exact to='/addExpense' className='nav-link' style={{color:'white'}}>Add Expense</NavLink>
+                                    <NavLink exact to='/budgetBreakdown' className='nav-link text-white setBold'>
+                                        <FaChartPie className="mb-1" /> Budget Breakdown
+                                    </NavLink>
                                 </li>
                                 <li className='nav-item'>
-                                    <NavLink exact to='/budgetBreakdown' className='nav-link' style={{color:'white'}}>Budget Breakdown</NavLink>
+                                    <NavLink exact to='/addExpense' className='nav-link text-white setBold'>
+                                        <RiAddCircleLine className="mb-1" /> Add Expense
+                                    </NavLink>
                                 </li>
                                 <li className='nav-item'>
-                                    <NavLink exact to='/profile' className='nav-link' style={{color:'white'}}>Profile</NavLink>
+                                    <NavLink exact to='/editProfile' className='nav-link text-white setBold'>
+                                        <ImProfile className="mb-1" /> Profile
+                                    </NavLink>
                                 </li>
                                 <li className="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <FaUserCircle className="mb-1 text-white" /> {localStorage.getItem('userName')}
-                                </a>
+                                    <a class="nav-link dropdown-toggle text-white setBold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <FaUserCircle className="mb-1" /> {localStorage.getItem('userName')}
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="/profile">
+                                            <FaUserEdit className="mb-1" /> Edit / Delete Account
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <div className='mx-1'>
+                                            <button className='form-control btn btn-danger btn' onClick={() => onLogout()}>
+                                                <FaSignOutAlt className="mb-1" /> Logout
+                                            </button>
+                                        </div>
+                                    </div>
                                 </li>
-                                <button className='btn btn-danger btn' style={{marginLeft:'7px'}} onClick={() => onLogout()}>Logout</button>
+                                
                             </>
                             : <>
                                 <li className='nav-item'>
-                                    <NavLink exact to='/register' className='nav-link' style={{color:'white'}}>Register</NavLink>
+                                    <NavLink exact to='/register' className='nav-link text-white setBold'>
+                                        <BsPersonPlusFill className="mb-1 " /> Register
+                                    </NavLink>
                                 </li>
                                 <li className='nav-item'>
-                                    <NavLink exact to='/login' className='nav-link' style={{color:'white'}}>Login</NavLink>
+                                    <NavLink exact to='/login' className='nav-link text-white setBold' >
+                                        <FaSignInAlt className="mb-1" /> Login
+                                    </NavLink>
                                 </li>
                             </>
                         }</ul>

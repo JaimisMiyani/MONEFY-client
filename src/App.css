@@ -107,6 +107,7 @@ table {
 
 .temp {
     border : 1px solid red;
+    /* color : rgb(162, 150, 150); */
 }
 
 .nav-link {
@@ -117,10 +118,18 @@ table > tr {
     border : 1px solid rgb(121, 113, 113);
 }
 
-.nav-link:hover {
+.addBorder:hover {
     box-shadow: 0px 0px 0px 2px #96bb7c !important;
 }
 
 .setShadow {
     box-shadow: 0px 15px 10px -15px black;    
+}
+
+.setBold {
+    transition: 0s;
+}
+
+.setBold:hover {
+    color : #96bb7c !important;
 }

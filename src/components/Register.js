@@ -70,6 +70,7 @@ const Register = ({ onLogin }) => {
 
             localStorage.setItem('token', token);
             localStorage.setItem('userName', name);
+            localStorage.setItem('userEmail', email);
             onLogin({_id: userId, userName: name});
             setIsRegistered(true);
 

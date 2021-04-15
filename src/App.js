@@ -9,13 +9,16 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import Navbar from './components/Navbar';
 import AddExpense from './components/AddExpense';
 import Profile from './components/Profile';
+import EditProfile from './components/EditProfile';
 import axios from 'axios';
 import BudgetBreakdown from './components/BudgetBreakdown';
 import Resources from './components/Resources';
 import Tips from './components/Tips';
 import Statistics from './components/Statistics';
+import DeleteAccount from './components/DeleteAccount';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { faRegistered } from '@fortawesome/free-solid-svg-icons';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
 
@@ -28,6 +31,7 @@ function App() {
   const logout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('userName');
+    localStorage.removeItem('userEmail');
     localStorage.clear()
     setUser({ auth: { user: {} } });
   };
@@ -73,9 +77,11 @@ function App() {
         <PrivateRoute path="/editBudgets" exact component={EditBudgets} />
         <PrivateRoute path="/addExpense" exact component={AddExpense} />
         <PrivateRoute path="/profile" exact component={Profile} />
+        <PrivateRoute path="/editProfile" exact component={EditProfile} />
         <PrivateRoute path="/budgetBreakdown" exact component={BudgetBreakdown} />
         <PrivateRoute path="/tips" exact component={Tips} />
         <PrivateRoute path="/statistics" exact component={Statistics} />
+        <PrivateRoute path="/deleteAccount" exact component={DeleteAccount} />
         <Route path="/" exact render={() => <Home />} />
       </Switch>
     </Router>

@@ -22,12 +22,11 @@ const Login = ({ onLogin }) => {
         }
         const body = { email, password };
 
-        console.log(body);
+        // console.log(body);
 
         try {
             const res = await axios.post('http://localhost:3000/api/user/login', body, config);
-            console.log("user", res.data);
-            localStorage.setItem('token', res.data.token);
+            
 
             const config1 = {
                 headers: {
@@ -36,10 +35,9 @@ const Login = ({ onLogin }) => {
                 }
             }
             const res1 = await axios.get('http://localhost:3000/api/user/getUserName', config1);
-            console.log("yep email", res1);
-
-
-            // localStorage.setItem('userName', res.data.token);
+            localStorage.setItem('token', res.data.token);
+            localStorage.setItem('userName', res1.data.userName);
+            localStorage.setItem('userName', res1.data.userEmail);
             setIsAuthenticated(true);
             onLogin({ _id: res.data._id, userName: res1.data.userName });
         } catch (error) {
