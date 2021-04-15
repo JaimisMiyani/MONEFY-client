@@ -4,14 +4,14 @@ import axios from 'axios'
 import DisplayError from './DisplayError';
 import { FaSignInAlt } from "react-icons/fa";
 
-const Login = ({onLogin}) => {
+const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
 
     const [password, setPassword] = useState('');
 
     const [error, setError] = useState([]);
 
-    const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('token') ? true:false));
+    const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('token') ? true : false));
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,16 +32,16 @@ const Login = ({onLogin}) => {
             const config1 = {
                 headers: {
                     'Content-type': 'application/json',
-                    'token' : localStorage.setItem('token', res.data.token)
+                    'token': res.data.token
                 }
             }
             const res1 = await axios.get('http://localhost:3000/api/user/getUserName', config1);
             console.log("yep email", res1);
 
-            
+
             // localStorage.setItem('userName', res.data.token);
             setIsAuthenticated(true);
-            onLogin(res.data);
+            onLogin({ _id: res.data._id, userName: res1.data.userName });
         } catch (error) {
             console.log(error.response.data.error);
             setError(error.response.data.error);
@@ -55,11 +55,11 @@ const Login = ({onLogin}) => {
     return (
         <div>
             { error && <DisplayError error={error} />}
-            <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{borderColor:'#184d47'}}>
+            <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                 <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
                     <div className="form-group col-sm text-left">
                         <h3>Welcome Back</h3>
-                        <p>Don't have an account? <a className="p blue" href="/register" style={{color:'#184d47'}}><u>sign up</u></a></p>
+                        <p>Don't have an account? <a className="p blue" href="/register" style={{ color: '#184d47' }}><u>sign up</u></a></p>
                     </div>
 
                     <div className="form-group col-sm">
@@ -71,8 +71,8 @@ const Login = ({onLogin}) => {
                     </div>
 
                     <div className="form-group col-sm text-left">
-                        <button type='submit' className="btn btn-block btn-primary p" style={{backgroundColor:'#184d47'}}>
-                            <FaSignInAlt className="mb-1 text-white"/>
+                        <button type='submit' className="btn btn-block btn-primary p" style={{ backgroundColor: '#184d47' }}>
+                            <FaSignInAlt className="mb-1 text-white" />
                             <span className="text-white"> Submit</span>
                         </button>
                     </div>

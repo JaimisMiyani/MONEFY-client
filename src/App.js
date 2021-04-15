@@ -21,7 +21,7 @@ function App() {
 
   const [user, setUser] = useState({
     auth: {
-      userId: {}
+      user: {}
     }
   })
 
@@ -33,7 +33,7 @@ function App() {
   };
 
   const login = (user) => {
-    setUser({ auth: { user: user._id } });
+    setUser({ auth: { user } });
   };
 
   const checkIfAlreadyLoggedIn = async () => {
