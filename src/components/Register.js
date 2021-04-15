@@ -71,17 +71,17 @@ const Register = ({ onLogin }) => {
             localStorage.setItem('token', token);
             localStorage.setItem('userName', name);
             localStorage.setItem('userEmail', email);
-            onLogin({_id: userId, userName: name});
+            onLogin({ _id: userId, userName: name });
             setIsRegistered(true);
 
         } catch (error) {
             console.log(error);
             // setError(error.response.data.error);
-        } 
+        }
     }
 
-    if(isRegistered && localStorage.getItem('token')) {
-        return <Redirect to='/profile'/>;
+    if (isRegistered && localStorage.getItem('token')) {
+        return <Redirect to={{ pathname: '/editProfile', aboutProps:{isAfterRegister: true} }}/>;
     }
 
     return (

@@ -8,7 +8,6 @@ import EditBudgets from './components/EditBudgets';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Navbar from './components/Navbar';
 import AddExpense from './components/AddExpense';
-import Profile from './components/Profile';
 import EditProfile from './components/EditProfile';
 import axios from 'axios';
 import BudgetBreakdown from './components/BudgetBreakdown';
@@ -76,7 +75,6 @@ function App() {
         <Route path="/resources" exact render={() => <Resources />} />
         <PrivateRoute path="/editBudgets" exact component={EditBudgets} />
         <PrivateRoute path="/addExpense" exact component={AddExpense} />
-        <PrivateRoute path="/profile" exact component={Profile} />
         <PrivateRoute path="/editProfile" exact component={EditProfile} />
         <PrivateRoute path="/budgetBreakdown" exact component={BudgetBreakdown} />
         <PrivateRoute path="/tips" exact component={Tips} />

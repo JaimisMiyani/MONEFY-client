@@ -29,19 +29,14 @@ const Navbar = ({ onLogout }) => {
                                         <RiAddCircleLine className="mb-1" /> Add Expense
                                     </NavLink>
                                 </li>
-                                <li className='nav-item'>
-                                    <NavLink exact to='/editProfile' className='nav-link text-white setBold'>
-                                        <ImProfile className="mb-1" /> Profile
-                                    </NavLink>
-                                </li>
                                 <li className="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle text-white setBold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <FaUserCircle className="mb-1" /> {localStorage.getItem('userName')}
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="/profile">
+                                        <NavLink class="dropdown-item" to={{ pathname: '/editProfile', aboutProps:{isAfterRegister: false} }} >
                                             <FaUserEdit className="mb-1" /> Edit / Delete Account
-                                        </a>
+                                        </NavLink>
                                         <div class="dropdown-divider"></div>
                                         <div className='mx-1'>
                                             <button className='form-control btn btn-danger btn' onClick={() => onLogout()}>
