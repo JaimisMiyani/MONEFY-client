@@ -3,6 +3,7 @@ import axios from 'axios'
 import DisplayError from './DisplayError';
 import DisplayMessage from './DisplayMessage'
 import { Table } from 'react-bootstrap';
+import Loading from './Loading';
 
 const AddExpense = () => {
     // useState for budgets
@@ -14,8 +15,13 @@ const AddExpense = () => {
 
     const [message, setMessage] = useState('');
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setMessage('');
+        setError('');
+        setIsLoading(true);
         const config = {
             headers: {
                 'Content-type': 'application/json',
@@ -30,9 +36,11 @@ const AddExpense = () => {
             const res = await axios.put('http://localhost:3000/api/expenses/addExpense', body, config);
             setMessage(capitalizeFirstLetter(`${expense} added!`));
             setError('');
+            setIsLoading(false);
             console.log(res.data);
         } catch (error) {
             setMessage('');
+            setIsLoading(false);
             console.log(error.response.data.error);
             setError(error.response.data.error);
         }
@@ -48,14 +56,15 @@ const AddExpense = () => {
                 <p className='p-3'>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
             </div>
             <div className='centered'>
-                { error && <DisplayError error={error} />}
-                { message && <DisplayMessage message={message} />}
+                {error && <DisplayError error={error} />}
+                {message && <DisplayMessage message={message} />}
+                {isLoading && <Loading />}
             </div>
             <div className='centered'>
                 <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
                     <div className='card-body'>
                         <table>
-                            <tr style={{border:'none'}}>
+                            <tr style={{ border: 'none' }}>
                                 <td>
                                     <select name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
                                         <option value="groceries" defaultValue>Groceries</option>
@@ -71,7 +80,7 @@ const AddExpense = () => {
                                 </td>
                                 <td><input type="number" onChange={(e) => setValue(e.target.value)}></input></td>
                             </tr>
-                            <tr style={{border:'none'}}>
+                            <tr style={{ border: 'none' }}>
                                 <td colSpan='2' style={{ textAlign: 'center' }}><button className='btn' style={{ backgroundColor: '#184d47', color: '#fff' }} onClick={(e) => handleSubmit(e)}>AddExpense</button></td>
                             </tr>
                         </table>

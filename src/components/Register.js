@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 import { BsPersonPlusFill } from "react-icons/bs";
+import Loading from './Loading';
 
 
 const Register = ({ onLogin }) => {
@@ -19,8 +20,13 @@ const Register = ({ onLogin }) => {
 
     const [isRegistered, setIsRegistered] = useState((localStorage.getItem('token') ? true : false));
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setIsLoading(true);
+        setError('');
 
         if (password !== confirmPassword) {
             setError('Passwords don\'t match.');
@@ -73,21 +79,23 @@ const Register = ({ onLogin }) => {
             localStorage.setItem('userEmail', email);
             onLogin({ _id: userId, userName: name });
             setIsRegistered(true);
-
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.log(error);
-            // setError(error.response.data.error);
+            setError(error.response.data.error);
         }
     }
 
     if (isRegistered && localStorage.getItem('token')) {
-        return <Redirect to={{ pathname: '/editProfile', aboutProps:{isAfterRegister: true} }}/>;
+        return <Redirect to={{ pathname: '/editProfile', aboutProps: { isAfterRegister: true } }} />;
     }
 
     return (
-        <div >
+        <div>
             <div className='centered'>
-                { error && <DisplayError error={error} />}
+                {error && <DisplayError error={error} />}
+                {isLoading && <Loading />}
             </div>
             <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                 <form className="card-body" onSubmit={(e) => handleSubmit(e)} >

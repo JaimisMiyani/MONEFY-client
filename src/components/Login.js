@@ -4,6 +4,7 @@ import axios from 'axios'
 import DisplayError from './DisplayError';
 import { FaSignInAlt } from "react-icons/fa";
 import DisplayMessage from './DisplayMessage';
+import Loading from './Loading';
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
@@ -14,8 +15,14 @@ const Login = ({ onLogin }) => {
 
     const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('token') ? true : false));
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        setIsLoading(true);
+        setError('');
+
         const config = {
             headers: {
                 'Content-type': 'application/json'
@@ -27,7 +34,7 @@ const Login = ({ onLogin }) => {
 
         try {
             const res = await axios.post('http://localhost:3000/api/user/login', body, config);
-            
+
 
             const config1 = {
                 headers: {
@@ -41,7 +48,9 @@ const Login = ({ onLogin }) => {
             localStorage.setItem('email', res1.data.userEmail);
             setIsAuthenticated(true);
             onLogin({ _id: res.data._id, userName: res1.data.userName });
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.log(error.response.data.error);
             setError(error.response.data.error);
         }
@@ -54,7 +63,8 @@ const Login = ({ onLogin }) => {
     return (
         <div>
             <div className='centered'>
-                { error && <DisplayError error={error} />}
+                {error && <DisplayError error={error} />}
+                {isLoading && <Loading />}
             </div>
             <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                 <form className="card-body" onSubmit={(e) => handleSubmit(e)}>

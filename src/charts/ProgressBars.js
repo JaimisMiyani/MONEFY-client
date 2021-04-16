@@ -4,7 +4,7 @@ import { ProgressBar, OverlayTrigger, Popover } from "react-bootstrap"
 const ProgressBars = ({ expenses, income }) => {
 
     const calculateFixed = () => {
-        return (expenses.totalExpense - expenses.misc + expenses.disretionary + expenses.communication);
+        return (expenses.totalExpense - expenses.misc - expenses.disretionary - expenses.clothing);
     }
 
     const leftover = Math.max(income - expenses.totalExpense, 0);

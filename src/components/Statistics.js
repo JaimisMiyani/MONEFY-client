@@ -5,6 +5,7 @@ import axios from 'axios';
 import InvestmentChart from '../charts/InvestmentChart';
 import ProgressBars from '../charts/ProgressBars';
 import { Redirect } from 'react-router-dom';
+import Loading from './Loading';
 
 const Statistics = () => {
 
@@ -17,6 +18,8 @@ const Statistics = () => {
     const [surpassed, setSurpassed] = useState(false);
     const [finalAmt, setFinalAmt] = useState(0);
     const [yearlyReturn, setYearlyReturn] = useState([]);
+
+    const [isLoading, setIsLoading] = useState(true);
 
     const maxAge = 60;
 
@@ -70,7 +73,9 @@ const Statistics = () => {
 
         await fetchProfile(config);
 
-        console.log(budgets, expenses, income);
+        setIsLoading(false);
+
+        // console.log(budgets, expenses, income);
     }
 
     const handleClick = (e) => {
@@ -112,6 +117,9 @@ const Statistics = () => {
 
     return (
         <>
+            <div>
+                {isLoading && <Loading />}
+            </div>
             <div className="card-group mx-auto" style={{ width: '80%', height: '840px', position: 'relative' }}>
                 <div className="card">
                     <div className="pl-4 pt-3" style={{ height: '450px', width: '100%', position: 'absolute' }}>

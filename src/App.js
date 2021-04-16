@@ -79,7 +79,7 @@ function App() {
         <PrivateRoute path="/budgetBreakdown" exact component={BudgetBreakdown} />
         <PrivateRoute path="/tips" exact component={Tips} />
         <PrivateRoute path="/statistics" exact component={Statistics} />
-        <PrivateRoute path="/deleteAccount" exact component={DeleteAccount} />
+        <PrivateRoute path="/deleteAccount" exact component={DeleteAccount} onLogout={logout}/>
         <Route path="/" exact render={() => <Home />} />
       </Switch>
     </Router>

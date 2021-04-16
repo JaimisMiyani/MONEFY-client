@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 import DisplayMessage from './DisplayMessage';
+import Loading from './Loading';
 
 const EditBudgets = () => {
     // useState for budgets
@@ -17,10 +18,15 @@ const EditBudgets = () => {
 
     const [error, setError] = useState('');
     const [message, setMessage] = useState('');
+    const [isLoading, setIsLoading] = useState(true);
 
     const handleSubmit = async (e, budget, data) => {
 
         e.preventDefault();
+
+        setMessage('');
+        setError('');
+        setIsLoading(true);
 
         const config = {
             headers: {
@@ -37,8 +43,10 @@ const EditBudgets = () => {
             console.log(res.data);
             setMessage(capitalizeFirstLetter(`${budget} updated!`));
             setError('');
+            setIsLoading(false);
         } catch (error) {
             // console.log(error.response.data.error);
+            setIsLoading(false);
             setError(error.response.data.error);
             setMessage('');
         }
@@ -68,7 +76,9 @@ const EditBudgets = () => {
             setEducation({ value: res.data.data.education, isUpdated: false });
             setCommunication({ value: res.data.data.communication, isUpdated: false });
             setMisc({ value: res.data.data.misc, isUpdated: false });
+            setIsLoading(false);
         } catch (error) {
+            setIsLoading(false);
             console.log(error.response.data.error)
             setError(error.response.data.error);
         }
@@ -87,6 +97,7 @@ const EditBudgets = () => {
                             <p className='shadow-none mx-2 mt-2 p-3 rounded'>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
                         </div>
                         <div className='centered'>
+                            {isLoading && <Loading />}
                             {error && <DisplayError error={error} />}
                             {message && <DisplayMessage message={message} />}
                         </div>
