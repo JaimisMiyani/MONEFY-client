@@ -43,8 +43,6 @@ const Profile = (props) => {
             }
         };
 
-        // console.log(config);
-
         try {
             const res = await axios.get('http://localhost:3000/api/profile', config);
             console.log(res.data);

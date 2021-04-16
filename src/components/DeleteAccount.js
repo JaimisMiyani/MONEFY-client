@@ -3,25 +3,37 @@ import axios from 'axios'
 import DisplayError from './DisplayError';
 import DisplayMessage from './DisplayMessage';
 import { NavLink } from 'react-router-dom'
+import { RiContactsBookUploadLine } from 'react-icons/ri';
 
 const DeleteAccount = () => {
-    const handleDelete = async (e) => {
-        e.preventDefault();
+    const [isDelete, setIsDelete] = useState(false);
 
-        const email = localStorage.getItem('userEmail');
-        const body = { email };
+    // const logout = () => {
+    //     localStorage.removeItem('token');
+    //     localStorage.removeItem('userName');
+    //     localStorage.removeItem('userEmail');
+    //     console.log("Account Deleted Successfully");
+    //     localStorage.clear();
+    // }
+    
+    const handleDelete = async (e) => {
+        e.preventDefault();    
+
+        const token = localStorage.getItem('token');
 
         const config = {
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                'token' : token,
             }
         }
 
-        console("in the delete account");
-
         try {
-            const res = await axios.put("http://localhost:3000/api/user/deleteAccount", body, config);
+            console.log("coming in try catch")
+            const res = await axios.get("http://localhost:3000/api/user/deleteAccount", config);
+            console.log("after try catch", res)
         } catch(error){
+            console.log("error in try catch")
             console.log(error);
         }
     }
@@ -38,7 +50,9 @@ const DeleteAccount = () => {
 
             <div className="card-footer text-right" style={{boxShadow:'0px 0px 10px 3px rgb(162, 150, 150) inset'}}>
                 <button className="btn btn-secondary" type="submit"> cancle </button>
-                <button className="btn btn-danger ml-2" type="submit" onSubmit={(e) => handleDelete(e)}> Yes, Delete </button>
+                <form onSubmit={(e) => handleDelete(e)}>
+                    <button className="btn btn-danger ml-2" type="submit"> Yes, Delete </button>
+                </form>
             </div> 
         </div>
     )

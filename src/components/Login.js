@@ -37,7 +37,7 @@ const Login = ({ onLogin }) => {
             const res1 = await axios.get('http://localhost:3000/api/user/getUserName', config1);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('userName', res1.data.userName);
-            localStorage.setItem('userName', res1.data.userEmail);
+            localStorage.setItem('userEmail', res1.data.userEmail);
             setIsAuthenticated(true);
             onLogin({ _id: res.data._id, userName: res1.data.userName });
         } catch (error) {

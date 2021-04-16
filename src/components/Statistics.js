@@ -112,22 +112,22 @@ const Statistics = () => {
 
     return (
         <>
-            <div className="card-group mx-auto" style={{ width: '80%', height: '1000px' }}>
+            <div className="card-group mx-auto" style={{ width: '80%', height: '840px', position: 'relative' }}>
                 <div className="card">
-                    <div className="pl-4 pt-3" style={{ height: '50%', width: '100%' }}>
+                    <div className="pl-4 pt-3" style={{ height: '450px', width: '100%', position: 'absolute' }}>
                         <DoughnutChart budgets={expenses} income={income} chartTitle="Your Expenses" />
                     </div>
 
-                    <div className="pl-4 pt-3" style={{ height: '50%', width: '100%' }}>
+                    <div className="pl-4 pt-4" style={{ height: '390px', top : '450px', width: '100%', position: 'absolute' }}>
                         <DoughnutChart budgets={budgets} income={income} chartTitle="Your Custom Budgets" />
                     </div>
                 </div>
 
                 <div className="card">
-                    <div className="pl-4 pt-3" style={{ height: '60%', width: '100%' }}>
+                    <div className="pl-4 pt-3" style={{ height: '450px', width: '100%', position: 'absolute' }}>
                         <RadarChart budgets={budgets} expenses={expenses} />
                     </div>
-                    <div className="pl-4 pt-3" style={{ height: '40%', width: '100%' }}>
+                    <div className="pl-4 pt-5" style={{ height: '390px', width: '100%',top : '450px', position: 'absolute' }}>
                         <ProgressBars expenses={expenses} income={income} />
                     </div>
                 </div>
