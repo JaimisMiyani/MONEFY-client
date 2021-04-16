@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 import DisplayMessage from './DisplayMessage'
-import { Table } from 'react-bootstrap';
 import Loading from './Loading';
+import { RiAddCircleLine, RiEditCircleFill } from "react-icons/ri";
 
 const AddExpense = () => {
     // useState for budgets
@@ -46,57 +46,87 @@ const AddExpense = () => {
         }
     }
 
+    const handleReset = async (e) => {
+        e.preventDefault();
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+                'token': localStorage.getItem('token')
+            }
+        }
+        const body = { expense, value };
+
+        console.log(body, expense);
+
+        try {
+            const res = await axios.put('http://localhost:3000/api/expenses/reset', body, config);
+            setMessage('Expenses reset!');
+            setError('');
+            setIsLoading(false);
+            console.log(res.data);
+        } catch (error) {
+            setMessage('');
+            setIsLoading(false);
+            console.log(error.response.data.error);
+            setError(error.response.data.error);
+        }
+    }
+
     const capitalizeFirstLetter = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
     return (
         <div style={{ margin: '10px' }}>
-            <div style={{ textAlign: 'center' }}>
-                <p className='p-3'>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
-            </div>
             <div className='centered'>
                 {error && <DisplayError error={error} />}
                 {message && <DisplayMessage message={message} />}
                 {isLoading && <Loading />}
             </div>
             <div className='centered'>
-                <div className='card text-dark mb-3' style={{ backgroundColor: '#d6efc7' }}>
-                    <div className='card-body'>
-                        <table>
-                            <tr style={{ border: 'none' }}>
-                                <td>
-                                    <select name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
-                                        <option value="groceries" defaultValue>Groceries</option>
-                                        <option value="housing">Housing</option>
-                                        <option value="transportation">Transportation</option>
-                                        <option value="clothing">Clothing</option>
-                                        <option value="health">Health</option>
-                                        <option value="disretionary">Disretionary</option>
-                                        <option value="education">Education</option>
-                                        <option value="communication">Communication</option>
-                                        <option value="misc">Misc</option>
-                                    </select>
-                                </td>
-                                <td><input type="number" onChange={(e) => setValue(e.target.value)}></input></td>
-                            </tr>
-                            <tr style={{ border: 'none' }}>
-                                <td colSpan='2' style={{ textAlign: 'center' }}><button className='btn' style={{ backgroundColor: '#184d47', color: '#fff' }} onClick={(e) => handleSubmit(e)}>AddExpense</button></td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-                <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
+                <div className="card col-5 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                     <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
                         <div className="form-group col-sm text-left">
-                            <h3>Add Expenses</h3>
+                            <h3 style={{color :'#184d47'}}>Add Expenses</h3>
                             <p>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
+                        </div>
+
+                        <div className="form-group col-sm text-left w-10">
+                            <select className="form-control" name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
+                                <option value="groceries" defaultValue>Groceries</option>
+                                <option value="housing">Housing</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="clothing">Clothing</option>
+                                <option value="health">Health</option>
+                                <option value="disretionary">Disretionary</option>
+                                <option value="education">Education</option>
+                                <option value="communication">Communication</option>
+                                <option value="misc">Misc</option>
+                            </select>
+                        </div>
+
+                        <div className="form-group col-sm text-left">
+                            <input className="form-control" type="number" placeholder="Enter expense here" onChange={(e) => setValue(e.target.value)}></input>
+                        </div>
+
+                        <div className="form-group col-sm text-left">
+                            <button type='submit' className="btn btn-block btn-primary p" style={{ backgroundColor: '#184d47' }}>
+                                <RiAddCircleLine className="mb-1 text-white" />
+                                <span className="text-white"> Add Expense</span>
+                            </button>
                         </div>
                     </form>
                 </div>
             </div>
             <div className='centered'>
-                <button className='btn btn-danger'>Reset Expenses</button>
+                <form onSubmit={(e) => handleReset(e)}>
+                    <div className="form-group col-sm text-left">
+                        <button type='submit' className="btn btn-block btn-danger p text-white">
+                            <RiEditCircleFill className="mb-1" />
+                            <span> Reset Expenses</span>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
     )

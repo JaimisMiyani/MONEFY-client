@@ -9,23 +9,22 @@ const BudgetBreakdown = () => {
         <div className="mx-5 mt-5">
             <div className="card" style={{ border: 'none' }}>
                 <Tabs defaultActiveKey="home">
-                    <Tab eventKey="home" title="Budget and Investment Breakdown" >
+                    <Tab eventKey="home" title="Budget and Investment Breakdown" tabClassName="addBorder">
                         <div className="card-body">
                             <Statistics />
                         </div>
                     </Tab>
-                    <Tab eventKey="budgets" title="Modify Budgets">
+                    <Tab eventKey="budgets" title="Modify Budgets" tabClassName="addBorder">
                         <div className="card-body">
                             <EditBudgets />
                         </div>
                     </Tab>
-                    <Tab eventKey="tips" title="Financial Tips">
+                    <Tab eventKey="tips" title="Financial Tips" tabClassName="addBorder">
                         <div className="card-body">
                             <Tips/>
                         </div>
                     </Tab>
                 </Tabs>
-
             </div>
         </div>
     )

@@ -94,7 +94,7 @@ const EditBudgets = () => {
                 <div className="card-body">
                     <div className="mx-auto" style={{ border: '1px solid black' }}>
                         <div>
-                            <p className='shadow-none mx-2 mt-2 p-3 rounded'>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
+                            <p className='shadow-sm mx-2 mt-2 p-3 rounded ptag'>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
                         </div>
                         <div className='centered'>
                             {isLoading && <Loading />}

@@ -53,7 +53,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
         <Doughnut data={data} options={options} width={null} height={null}/>
         <div style={{ position: 'absolute', width: '100%', top: '55%', left: 70, textAlign: 'center', lineHeight: '20px', fontSize : '20px'}}>
             <span><b>
-                ₹{income};
+                ₹{income}
             </b></span>
         </div>
     </div>

@@ -110,8 +110,30 @@
     transition: 0s ease !important;
 }
 
+.nav-link:hover {
+    color: #96bb7c !important;
+}
+
+h3.monefy{
+    transition : 1s ease;
+}
+
+h3.monefy:hover{
+    transform: scale(1.2);
+    color:#96bb7c !important;
+    font-weight: bold;
+}
+
 table > tr {
     border : 1px solid rgb(121, 113, 113);
+}
+
+.addBorder {
+    color: #184d47 !important;
+}
+
+.activeTab {
+    color: #96bb7c !important;
 }
 
 .addBorder:hover {
