@@ -15,7 +15,7 @@ const Register = ({ onLogin }) => {
 
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    const [error, setError] = useState([]);
+    const [error, setError] = useState('');
 
     const [isRegistered, setIsRegistered] = useState((localStorage.getItem('token') ? true : false));
 
@@ -86,7 +86,9 @@ const Register = ({ onLogin }) => {
 
     return (
         <div >
-            { error && <DisplayError error={error} />}
+            <div className='centered'>
+                { error && <DisplayError error={error} />}
+            </div>
             <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                 <form className="card-body" onSubmit={(e) => handleSubmit(e)} >
                     <div className="form-group col-sm text-left">

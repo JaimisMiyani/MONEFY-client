@@ -9,7 +9,6 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
     centerText: {
       display: true,
       text: {income},
-    //   fontSize : 10,
       backgroundColor : '#00ff00'
     },
     legend: {
@@ -34,8 +33,6 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
     }
   };
 
-//   console.log("hello")
-//   console.log("income", income)
 
   const data = {
 
@@ -56,12 +53,9 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
         <Doughnut data={data} options={options} width={null} height={null}/>
         <div style={{ position: 'absolute', width: '100%', top: '55%', left: 70, textAlign: 'center', lineHeight: '20px', fontSize : '20px'}}>
             <span><b>
-                {income}&#x20B9;
+                ₹{income};
             </b></span>
         </div>
     </div>
-    // <>
-    //     <Doughnut height={null} width={null} data={data} options={options} />
-    // </>
   );
 }

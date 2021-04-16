@@ -2,7 +2,7 @@ import React from 'react'
 
 const DisplayMessage = ({message}) => {
     return (
-        <div style={{backgroundColor:'#fad586', margin:'5px'}}>
+        <div className='p-3' style={{backgroundColor:'#fad586', margin:'5px', width:'fit-content'}}>
             {message}
         </div>
     )

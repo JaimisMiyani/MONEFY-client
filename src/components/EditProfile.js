@@ -46,10 +46,11 @@ const Profile = (props) => {
         try {
             const res = await axios.get('http://localhost:3000/api/profile', config);
             console.log(res.data);
+            localStorage.setItem('income', res.data.data.income);
             setIncome(res.data.data.income);
             setAge(res.data.data.age);
         } catch (error) {
-            console.log(error.response.data.error);
+            console.log(error);
         }
     };
 
@@ -104,12 +105,14 @@ const Profile = (props) => {
                     <p>Or, <a className="p blue" href="/deleteAccount" style={{ color: '#184d47' }}><u>delete your account</u></a></p>
                 </div>
 
-                <div className="form-group col-sm">
-                    <input className="form-control" type='number' placeholder="Age" onChange={(e) => setAge(e.target.value)} />
+                <div className="form-group col-sm text-left">
+                    <label>Age:</label>
+                    <input className="form-control" type='number' placeholder="Age" onChange={(e) => setAge(e.target.value)} value={age}/>
                 </div>
 
                 <div className="form-group col-sm text-left">
-                    <input className="form-control" type='number' placeholder="Monthly Income" onChange={(e) => setIncome(e.target.value)} />
+                    <label>Monthly income:</label>
+                    <input className="form-control" type='number' placeholder="Monthly Income" onChange={(e) => setIncome(e.target.value)} value={income} />
                 </div>
 
                 <div className="form-group col-sm text-left">

@@ -133,9 +133,9 @@ const Statistics = () => {
                 </div>
             </div>
 
-            <div className="card mx-auto my-5" style={{ width: '70%', height: '800px' }}>
+            <div className="card mx-auto my-5" style={{ width: '70%' }}>
                 <div className="card-body py-auto">
-                    <h3 className="card-title">Let's get your money to work</h3>
+                    <h3 className="card-title" style={{backgroundColor:'184d47'}}>Let's get your money to work</h3>
                     <InvestmentChart ages={ages} yearlyReturn={yearlyReturn} investment={investment} surpassed={surpassed} finalAmt={finalAmt} handleClick={handleClick}/>
                 </div>
             </div>

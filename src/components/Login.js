@@ -3,13 +3,14 @@ import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import DisplayError from './DisplayError';
 import { FaSignInAlt } from "react-icons/fa";
+import DisplayMessage from './DisplayMessage';
 
 const Login = ({ onLogin }) => {
     const [email, setEmail] = useState('');
 
     const [password, setPassword] = useState('');
 
-    const [error, setError] = useState([]);
+    const [error, setError] = useState('');
 
     const [isAuthenticated, setIsAuthenticated] = useState((localStorage.getItem('token') ? true : false));
 
@@ -37,7 +38,7 @@ const Login = ({ onLogin }) => {
             const res1 = await axios.get('http://localhost:3000/api/user/getUserName', config1);
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('userName', res1.data.userName);
-            localStorage.setItem('userEmail', res1.data.userEmail);
+            localStorage.setItem('email', res1.data.userEmail);
             setIsAuthenticated(true);
             onLogin({ _id: res.data._id, userName: res1.data.userName });
         } catch (error) {
@@ -52,7 +53,9 @@ const Login = ({ onLogin }) => {
 
     return (
         <div>
-            { error && <DisplayError error={error} />}
+            <div className='centered'>
+                { error && <DisplayError error={error} />}
+            </div>
             <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                 <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
                     <div className="form-group col-sm text-left">
