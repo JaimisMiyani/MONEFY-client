@@ -86,6 +86,14 @@ const AddExpense = () => {
                         </table>
                     </div>
                 </div>
+                <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
+                    <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
+                        <div className="form-group col-sm text-left">
+                            <h3>Add Expenses</h3>
+                            <p>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div className='centered'>
                 <button className='btn btn-danger'>Reset Expenses</button>
