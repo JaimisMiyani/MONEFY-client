@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Card, CardDeck } from "react-bootstrap";
+import { FaSignInAlt } from "react-icons/fa";
+import { BsPersonPlusFill } from "react-icons/bs";
 
 const Home = () => {
     return (
@@ -15,12 +17,12 @@ const Home = () => {
                         <div>
                             <Link to="/register" title="Register">
                                 <button className="btn" style={{ backgroundColor: '#184d47', color: '#fff' }}>
-                                    Let's Get Started
+                                    <BsPersonPlusFill className="mb-1 " /> Let's Get Started
                             </button>
                             </Link>
                             <Link exact to="/login" title="Login">
                                 <button className="btn" style={{ backgroundColor: '#184d47', color: '#fff', marginLeft: '10px' }}>
-                                    Login
+                                    <FaSignInAlt className="mb-1" /> Login
                             </button>
                             </Link>
                         </div>}

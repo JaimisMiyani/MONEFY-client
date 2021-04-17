@@ -32,14 +32,14 @@ const Navbar = ({ onLogout }) => {
                                     </NavLink>
                                 </li>
                                 <li className="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle text-white setBold" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <a className="nav-link dropdown-toggle text-white setBold" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <FaUserCircle className="mb-1" /> {localStorage.getItem('userName')}
                                     </a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <NavLink class="dropdown-item" to={{ pathname: '/editProfile', aboutProps:{isAfterRegister: false} }} >
+                                    <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <NavLink className="dropdown-item" to={{ pathname: '/editProfile', aboutProps:{isAfterRegister: false} }} >
                                             <FaUserEdit className="mb-1" /> Edit / Delete Account
                                         </NavLink>
-                                        <div class="dropdown-divider"></div>
+                                        <div className="dropdown-divider"></div>
                                         <div className='mx-1'>
                                             <button className='form-control btn btn-danger btn' onClick={() => onLogout()}>
                                                 <FaSignOutAlt className="mb-1" /> Logout

@@ -86,14 +86,20 @@ const Statistics = () => {
     const calculateReturn = () => {
 
         const newAges = [], newYearlyReturn = [];
-        const savings = income - expenses.totalExpense;
+        var savings = Math.max(income - expenses.totalExpense, 0 );
         var total = savings * 0.8;
+
+        if(total === 0) {
+            total = 2000;
+        }
 
         setInvestment(total);
 
         if (savings < income * 0.2) {
             setSurpassed(true);
         }
+
+        savings = 2000;
 
         for (var i = age; i <= maxAge; i++) {
             total = (Math.round(total + (total * 0.04))) + savings * 12;

@@ -87,11 +87,6 @@ const Profile = (props) => {
                     {message && <DisplayMessage message={message} />}
                 </div>
                 <div className="card col-4 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
-                    <div className='centered'>
-                        {isLoading && <Loading />}
-                        {error && <DisplayError error={error} />}
-                        {message && <DisplayMessage message={message} />}
-                    </div>
                     <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
                         <div className="form-group col-sm text-left">
                             <h3>Tells us about yourself</h3>

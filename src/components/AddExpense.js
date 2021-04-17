@@ -7,7 +7,7 @@ import { RiAddCircleLine, RiEditCircleFill } from "react-icons/ri";
 
 const AddExpense = () => {
     // useState for budgets
-    const [expense, setExpense] = useState('groceries');
+    const [expense, setExpense] = useState('');
 
     const [value, setValue] = useState('');
 
@@ -87,13 +87,14 @@ const AddExpense = () => {
                 <div className="card col-5 my-5 mx-auto px-0 rounded-lg text-center" style={{ borderColor: '#184d47' }}>
                     <form className="card-body" onSubmit={(e) => handleSubmit(e)}>
                         <div className="form-group col-sm text-left">
-                            <h3 style={{color :'#184d47'}}>Add Expenses</h3>
+                            <h3 style={{ color: '#184d47' }}>Add Expenses</h3>
                             <p>Add your expenses from here as you make any and go to Budget Breakdown to review your budget and expense.</p>
                         </div>
 
                         <div className="form-group col-sm text-left w-10">
                             <select className="form-control" name="expenses" id="expenses" onChange={(e) => setExpense(e.target.value)}>
-                                <option value="groceries" defaultValue>Groceries</option>
+                                <option selected>Open this select menu</option>
+                                <option value="groceries">Groceries</option>
                                 <option value="housing">Housing</option>
                                 <option value="transportation">Transportation</option>
                                 <option value="clothing">Clothing</option>
