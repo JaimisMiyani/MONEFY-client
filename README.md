@@ -1,6 +1,6 @@
 # Monefy - Frontend
 
-Monefy is an application that analyses a users bank data, generates customized bugets, and tracks there expenses in order to encourage saving and investing. 
+Monefy is a React.js / Node.js personal finance application, developed to help users budget properly and consider investing.
 
 [This](https://github.com/raj-gondalia/monefy-backend) is a link to the back-end repository.
 
