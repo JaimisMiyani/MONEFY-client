@@ -89,12 +89,12 @@ const EditBudgets = () => {
     }, []);
 
     return (
-        <div className="mx-5 mt-5">
+        <div className="mx-3 mt-3">
             <div className="card" style={{ border: 'none' }}>
                 <div className="card-body">
                     <div className="mx-auto" style={{ border: '1px solid black' }}>
                         <div>
-                            <p className='shadow-sm mx-2 mt-2 p-3 rounded'>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
+                            <p className='shadow-sm mx-2 mt-2 p-3 rounded' style={{backgroundColor:'#d6efc7'}}>From here you can set your budgets. A budget is basically an estimation of revenue and expenses over a specified future period of time and is usually compiled and re-evaluated on a periodic basis.</p>
                         </div>
                         <div className='centered'>
                             {isLoading && <Loading />}
