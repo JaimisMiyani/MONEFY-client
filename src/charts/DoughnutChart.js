@@ -1,7 +1,7 @@
 import React from 'react';
 import { Doughnut } from "react-chartjs-2";
   
-export default function DoughnutChart({ budgets, income, chartTitle }) {
+export default function DoughnutChart({ values, income,  chartTitle }) {
 
   const options = {
     maintainAspectRatio: true,
@@ -43,7 +43,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
             label: "Budget",
             backgroundColor: ["#18eda4",'#6c0ef0', '#f5776c', '#c973c9', '#ed072a', '#e6c78e', '#55a7e6', '#993300', '#b38f00'],
             hoverBackgroundColor: ["#19ffaf", '#a463ff', '#ff695c', '#ed8eed', '#ff0329', '#fcdca2', '#63b4f2', '#cc4400', '#e6b800'],
-            data: [budgets.groceries, budgets.housing, budgets.transportation, budgets.clothing, budgets.health, budgets.disretionary, budgets.education, budgets.communication, budgets.misc]
+            data: [values.groceries, values.housing, values.transportation, values.clothing, values.health, values.disretionary, values.education, values.communication, values.misc]
         },
     ],
   };
@@ -53,7 +53,7 @@ export default function DoughnutChart({ budgets, income, chartTitle }) {
         <Doughnut data={data} options={options} width={null} height={null}/>
         <div style={{ position: 'absolute', width: '100%', top: '55%', left: 70, textAlign: 'center', lineHeight: '20px', fontSize : '20px'}}>
             <span><b>
-                ₹{income}
+                ₹{values.groceries + values.housing + values.transportation + values.clothing + values.health + values.disretionary + values.education + values.communication + values.misc}
             </b></span>
         </div>
     </div>

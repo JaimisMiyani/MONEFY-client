@@ -129,11 +129,11 @@ const Statistics = () => {
             <div className="card-group mx-auto" style={{ width: '80%', height: '840px', position: 'relative' }}>
                 <div className="card">
                     <div className="pl-4 pt-3" style={{ height: '450px', width: '100%', position: 'absolute' }}>
-                        <DoughnutChart budgets={expenses} income={income} chartTitle="Your Expenses" />
+                        <DoughnutChart values={expenses} income={income} chartTitle="Your Expenses" />
                     </div>
 
                     <div className="pl-4 pt-4" style={{ height: '390px', top : '450px', width: '100%', position: 'absolute' }}>
-                        <DoughnutChart budgets={budgets} income={income} chartTitle="Your Custom Budgets" />
+                        <DoughnutChart values={budgets} income={income} chartTitle="Your Custom Budgets" />
                     </div>
                 </div>
 
