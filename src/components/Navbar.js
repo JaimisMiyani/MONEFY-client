@@ -9,10 +9,9 @@ const Navbar = ({ onLogout }) => {
         <div className="setShadow" style={{backgroundColor:'#184d47', color:'#fff'}}>
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className='container-fluid'>
-                    {/* <NavLink exact to='/' className="navbar-brand text-white">Revest</NavLink> */}
                     <NavLink exact to='/' className="navbar-brand text-white">
-                        {/* <h3 className="mt-1 monefy">MONEFY</h3> */}
-                        <img src = "MONEFY.png" atler="image not visible" height="50px" width ="50px"></img>
+                        <h3 className="mt-1 monefy">MONEFY</h3>
+                        {/* <img src = "MONEFY.png" atler="image not visible" height="50px" width ="50px"></img> */}
                     </NavLink>
                     <ul className='navbar-nav d-flex'>
                         <li className='nav-item'>
